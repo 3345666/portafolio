@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NOIRÉLUX — The Signature Set | Luxury Activewear Atelier</title>
+<meta name="description" content="NOIRÉLUX: activewear de lujo en tallas inclusivas. Edición limitada 'The Signature Set'. Comodidad diseñada, silueta a medida." />
+<meta name="robots" content="noindex,follow" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+  :root{
+    --bg:#0b0b0d; --bg-alt:#131315; --card:#18181a;
+    --ink:#f2efe9; --muted:#8f8a80;
+    --gold:#cdae6d; --gold-light:#e4cd9a;
+    --radius:2px;
+    --shadow:0 24px 60px rgba(0,0,0,.5);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.7 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:"Playfair Display",serif;font-weight:700;margin:0 0 .4em;letter-spacing:.01em}
+  a{color:inherit}
+  .container{max-width:1180px;margin:0 auto;padding:0 24px}
+  img{max-width:100%;display:block}
+
+  .demo-banner{
+    background:var(--gold);color:#1a1508;text-align:center;font-size:.82rem;font-weight:700;
+    padding:9px 16px;
+  }
+  .demo-banner a{text-decoration:underline}
+
+  header.nav{position:sticky;top:0;z-index:20;background:rgba(11,11,13,.9);backdrop-filter:blur(10px);border-bottom:1px solid rgba(205,174,109,.16)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+  .logo{font-family:"Playfair Display",serif;font-size:1.5rem;font-weight:700;letter-spacing:.08em;text-decoration:none}
+  .nav-links{display:flex;gap:28px;align-items:center;font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+  .nav-links a{text-decoration:none;color:var(--muted);transition:color .15s}
+  .nav-links a:hover{color:var(--gold-light)}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--gold);color:#1a1508;font-weight:800;font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;
+    padding:13px 26px;border-radius:var(--radius);text-decoration:none;border:none;cursor:pointer;
+    transition:background .15s, transform .15s;
+  }
+  .btn:hover{background:var(--gold-light);transform:translateY(-2px)}
+  .btn.ghost{background:transparent;color:var(--gold-light);border:1px solid var(--gold)}
+  .btn.sm{padding:10px 20px;font-size:.74rem}
+  .btn.full{width:100%;justify-content:center}
+
+  /* Hero */
+  .hero{padding:70px 0}
+  .hero-grid{display:grid;grid-template-columns:1fr 0.85fr;gap:56px;align-items:center}
+  .eyebrow{color:var(--gold-light);font-weight:700;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;display:block;margin-bottom:16px}
+  .hero h1{font-size:clamp(42px,6vw,68px);line-height:1.02;margin-bottom:18px}
+  .hero p.desc{color:var(--muted);font-size:1rem;max-width:420px;margin-bottom:26px}
+  .hero-price{font-family:"Playfair Display",serif;font-size:1.6rem;color:var(--gold-light);margin-bottom:22px}
+  .hero-price small{font-family:Manrope,sans-serif;font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;display:block}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-media{position:relative}
+  .hero-media .frame{border-radius:var(--radius);overflow:hidden;border:1px solid rgba(205,174,109,.3);box-shadow:var(--shadow);aspect-ratio:4/5}
+  .hero-media img{width:100%;height:100%;object-fit:cover}
+  .hero-pill{
+    position:absolute;top:18px;right:18px;background:var(--bg);border:1px solid var(--gold);
+    color:var(--gold-light);font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+    padding:6px 14px;border-radius:999px;
+  }
+
+  .strip{border-top:1px solid rgba(205,174,109,.15);border-bottom:1px solid rgba(205,174,109,.15);padding:22px 0;background:var(--bg-alt)}
+  .strip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center;font-size:.78rem;letter-spacing:.03em;color:var(--muted)}
+  .strip-grid i{color:var(--gold);margin-right:6px}
+
+  .section{padding:88px 0}
+  .section-head{text-align:center;max-width:620px;margin:0 auto 48px}
+  .section-head .eyebrow{justify-content:center}
+  .section-head h2{font-size:clamp(30px,4vw,42px)}
+  .section-head p{color:var(--muted)}
+
+  .values{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .value-card{padding:24px 18px;border:1px solid rgba(205,174,109,.14);text-align:center}
+  .value-card i{color:var(--gold);font-size:1.4rem;margin-bottom:12px}
+  .value-card h3{font-size:1rem;margin-bottom:6px}
+  .value-card p{color:var(--muted);font-size:.84rem;margin:0}
+
+  /* Products */
+  .products{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+  .product-card{background:var(--card);border:1px solid rgba(205,174,109,.14)}
+  .product-card img{aspect-ratio:3/4;object-fit:cover;width:100%}
+  .product-body{padding:22px 24px 26px}
+  .product-body h3{font-size:1.15rem;margin-bottom:4px}
+  .product-body .p-price{color:var(--gold-light);font-weight:700;margin-bottom:12px}
+  .product-body p.p-desc{color:var(--muted);font-size:.88rem;margin:0 0 18px}
+
+  .gallery-single{border:1px solid rgba(205,174,109,.2);max-width:820px;margin:0 auto}
+  .gallery-single img{width:100%}
+
+  /* Testimonials */
+  .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .t-card{background:var(--card);border:1px solid rgba(205,174,109,.14);padding:24px}
+  .stars{color:var(--gold);margin-bottom:10px;font-size:.85rem}
+  .t-card p.quote{font-size:.92rem;margin:0 0 16px;color:var(--ink)}
+  .t-author{display:flex;align-items:center;gap:10px}
+  .t-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-light));display:flex;align-items:center;justify-content:center;color:#1a1508;font-weight:800;font-size:.8rem}
+  .t-author strong{display:block;font-size:.86rem}
+  .t-author span{color:var(--muted);font-size:.74rem}
+
+  /* FAQ */
+  .faq{max-width:760px;margin:0 auto}
+  details{background:var(--card);border:1px solid rgba(205,174,109,.14);padding:2px 0;margin-bottom:10px}
+  summary{padding:16px 20px;cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;font-size:.94rem}
+  summary::after{content:"+";color:var(--gold)}
+  details[open] summary::after{content:"−"}
+  details p{padding:0 20px 18px;margin:0;color:var(--muted);font-size:.9rem}
+
+  /* Waitlist */
+  .cta-section{background:var(--bg-alt);border-top:1px solid rgba(205,174,109,.18)}
+  .cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  form.wait-form{display:flex;flex-direction:column;gap:14px}
+  form.wait-form label{font-size:.78rem;font-weight:700;color:var(--muted);letter-spacing:.03em;display:flex;flex-direction:column;gap:6px;text-transform:uppercase}
+  form.wait-form input{
+    background:var(--bg);border:1px solid rgba(205,174,109,.28);border-radius:2px;padding:12px 14px;color:var(--ink);font:400 15px Manrope,sans-serif;outline:none;
+  }
+  form.wait-form input:focus{border-color:var(--gold)}
+  .form-msg{display:none;background:rgba(205,174,109,.12);border:1px solid var(--gold);border-radius:2px;padding:12px 14px;font-size:.86rem;color:var(--gold-light)}
+  .form-msg.show{display:block}
+
+  footer{padding:36px 0;border-top:1px solid rgba(205,174,109,.15);text-align:center;color:var(--muted);font-size:.82rem}
+  footer a{color:var(--gold-light);text-decoration:none}
+
+  @media(max-width:920px){
+    .hero-grid{grid-template-columns:1fr}
+    .hero-media{order:-1;max-width:380px;margin:0 auto}
+    .strip-grid{grid-template-columns:repeat(2,1fr)}
+    .values,.products,.testimonials{grid-template-columns:1fr}
+    .cta-grid{grid-template-columns:1fr}
+    .nav-links{display:none}
+  }
+</style>
+</head>
+<body>
+
+  <div class="demo-banner">Proyecto demo de portafolio · NOIRÉLUX es una marca ficticia — <a href="recursos.html">volver a Recursos</a> · <a href="index.html">portafolio de Tonathiu Palma</a></div>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="#top">NOIRÉLUX</a>
+      <nav class="nav-links">
+        <a href="#coleccion">Colección</a>
+        <a href="#filosofia">Filosofía</a>
+        <a href="#resenas">Reseñas</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn sm" href="#waitlist">Unirme a la lista</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Luxury Activewear Atelier</span>
+          <h1>The Signature Set</h1>
+          <p class="desc">Comodidad diseñada. Silueta a medida. Edición limitada, tallas inclusivas de la XS a la 4XL.</p>
+          <div class="hero-price">$148 USD <small>Set completo · top + legging + cárdigan</small></div>
+          <div class="hero-actions">
+            <a class="btn" href="#waitlist"><i class="fa-solid fa-envelope"></i> Unirme a la lista de espera</a>
+            <a class="btn ghost" href="#coleccion">Ver colección</a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <div class="frame">
+            <img src="assets/images/g-1.webp" alt="Signature Set NOIRÉLUX en lavanda" loading="lazy" width="600" height="750" />
+          </div>
+          <span class="hero-pill">Nuevo</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="strip">
+      <div class="container strip-grid">
+        <div><i class="fa-solid fa-truck"></i>Envío gratis +$150</div>
+        <div><i class="fa-solid fa-leaf"></i>Tela premium reciclada</div>
+        <div><i class="fa-solid fa-rotate-left"></i>Devoluciones 30 días</div>
+        <div><i class="fa-solid fa-ruler"></i>Tallas XS – 4XL</div>
+      </div>
+    </section>
+
+    <section id="filosofia" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Nuestra filosofía</span>
+          <h2>Lujo que se siente, no solo se ve</h2>
+          <p>Cada pieza se diseña primero para el cuerpo real, después para la cámara.</p>
+        </div>
+        <div class="values">
+          <div class="value-card"><i class="fa-solid fa-shirt"></i><h3>Comodidad diseñada</h3><p>Costuras planas y tela de compresión suave para movimiento real.</p></div>
+          <div class="value-card"><i class="fa-solid fa-people-arrows"></i><h3>Tallaje inclusivo</h3><p>De la XS a la 4XL, con patronaje propio para cada rango.</p></div>
+          <div class="value-card"><i class="fa-solid fa-recycle"></i><h3>Materiales conscientes</h3><p>Fibras recicladas certificadas en toda la colección.</p></div>
+          <div class="value-card"><i class="fa-solid fa-boxes-packing"></i><h3>Lotes limitados</h3><p>Producimos poco, para producir mejor. Sin reabastecimiento masivo.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="coleccion" class="section" style="background:var(--bg-alt)">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Edición limitada</span>
+          <h2>La colección</h2>
+          <p>Dos colorways disponibles mientras dure el inventario.</p>
+        </div>
+        <div class="products">
+          <article class="product-card">
+            <img src="assets/images/g-1.webp" alt="Signature Set colorway lavanda" loading="lazy" />
+            <div class="product-body">
+              <h3>Signature Set · Lavanda</h3>
+              <div class="p-price">$148 USD</div>
+              <p class="p-desc">Top cruzado + legging de compresión + cárdigan largo. Tallas XS – 4XL.</p>
+              <a class="btn full" href="#waitlist">Avisarme cuando esté disponible</a>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="assets/images/talla_grand.webp" alt="Signature Set colorway blush" loading="lazy" />
+            <div class="product-body">
+              <h3>Signature Set · Blush</h3>
+              <div class="p-price">$148 USD</div>
+              <p class="p-desc">Bralette estructurado + legging ribbed de cintura alta. Tallas XS – 4XL.</p>
+              <a class="btn full" href="#waitlist">Avisarme cuando esté disponible</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Campaña</span>
+          <h2>La pieza publicitaria</h2>
+          <p>Creativo usado en la campaña de lanzamiento de "The Signature Set".</p>
+        </div>
+        <div class="gallery-single">
+          <img src="assets/images/g-3.webp" alt="Anuncio de campaña NOIRÉLUX The Signature Set" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section id="resenas" class="section" style="background:var(--bg-alt)">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Comunidad NOIRÉLUX</span>
+          <h2>Lo que dicen quienes ya lo usan</h2>
+        </div>
+        <div class="testimonials">
+          <div class="t-card">
+            <div class="stars">★★★★★</div>
+            <p class="quote">"Por fin una marca de lujo que hace mi talla real, no solo la promociona. La calidez cae increíble."</p>
+            <div class="t-author"><div class="t-avatar">VL</div><div><strong>Valeria L.</strong><span>Diseñadora freelance</span></div></div>
+          </div>
+          <div class="t-card">
+            <div class="stars">★★★★★</div>
+            <p class="quote">"Lo uso para trabajar desde casa y para salir a comer. Se ve elegante sin parecer deportivo genérico."</p>
+            <div class="t-author"><div class="t-avatar">DC</div><div><strong>Daniela C.</strong><span>Consultora</span></div></div>
+          </div>
+          <div class="t-card">
+            <div class="stars">★★★★★</div>
+            <p class="quote">"La edición limitada se siente exclusiva de verdad. Llegó antes de lo esperado y la tela es otro nivel."</p>
+            <div class="t-author"><div class="t-avatar">SP</div><div><strong>Sofía P.</strong><span>Cliente recurrente</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Dudas frecuentes</span>
+          <h2>Preguntas frecuentes</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>¿Qué tallas manejan?</summary>
+            <p>Todo el rango de la XS a la 4XL, con patronaje diseñado específicamente para cada grupo de tallas.</p>
+          </details>
+          <details>
+            <summary>¿Cuándo vuelve a haber inventario?</summary>
+            <p>Producimos en lotes limitados. Quienes se unen a la lista de espera reciben acceso 48 horas antes del lanzamiento público.</p>
+          </details>
+          <details>
+            <summary>¿De qué material está hecho el Signature Set?</summary>
+            <p>Blend de fibras recicladas certificadas con compresión suave y costuras planas para uso todo el día.</p>
+          </details>
+          <details>
+            <summary>¿Hacen envíos internacionales?</summary>
+            <p>Sí, a la mayoría de países de Latinoamérica y Estados Unidos. El costo se calcula en el checkout.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="waitlist" class="section cta-section">
+      <div class="container cta-grid">
+        <div>
+          <span class="eyebrow">Acceso anticipado</span>
+          <h2>Únete a la lista de espera</h2>
+          <p style="color:var(--muted)">Sé de las primeras en enterarte cuando "The Signature Set" vuelva a estar disponible.</p>
+        </div>
+        <form class="wait-form" id="waitForm">
+          <label>Nombre
+            <input type="text" name="nombre" required placeholder="Tu nombre" />
+          </label>
+          <label>Correo electrónico
+            <input type="email" name="email" required placeholder="tucorreo@email.com" />
+          </label>
+          <label>Talla de interés
+            <input type="text" name="talla" placeholder="Ej. M, 2XL..." />
+          </label>
+          <button class="btn full" type="submit"><i class="fa-solid fa-envelope"></i> Unirme a la lista</button>
+          <p class="form-msg" id="formMsg">¡Gracias! Este es un formulario de demostración — en un proyecto real, aquí se enviaría tu solicitud a la lista de espera del negocio.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>NOIRÉLUX® — marca ficticia creada con fines de demostración dentro del portafolio de <a href="index.html">Tonathiu Palma</a>.</p>
+      <p><a href="recursos.html">← Volver a Recursos de Marketing</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("waitForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      document.getElementById("formMsg").classList.add("show");
+    });
+  </script>
+</body>
+</html>

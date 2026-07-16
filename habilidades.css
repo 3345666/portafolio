@@ -1,11 +1,11 @@
 /* ====== Tokens base (alineado con tu portafolio) ====== */
 :root{
-  --bg:#ffffff;
-  --paper:#f6f7f9;
-  --ink:#0f1115;
-  --muted:#6b7280;
-  --brand:#b8860b;
-  --ring:rgba(184,134,11,.28);
+  --bg:#f5f7fa;
+  --paper:#eaecf4;
+  --ink:#0f1623;
+  --muted:#5b6b8a;
+  --brand:#4f46e5;
+  --ring:rgba(79,70,229,.20);
   --radius:16px;
   --container:1100px;
   --fs-h2:clamp(22px, 3.4vw, 30px);

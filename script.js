@@ -11,9 +11,43 @@ document.addEventListener("DOMContentLoaded", () => {
   const navBtn = $(".nav-toggle");
   const nav = $("#site-nav");
   if (navBtn && nav) {
+    const icon = navBtn.querySelector("i");
+
+    const openNav = () => {
+      nav.classList.add("open");
+      navBtn.setAttribute("aria-expanded", "true");
+      if (icon) { icon.className = "fa-solid fa-xmark"; }
+      document.body.classList.add("nav-is-open");
+    };
+
+    const closeNav = () => {
+      nav.classList.remove("open");
+      navBtn.setAttribute("aria-expanded", "false");
+      if (icon) { icon.className = "fa-solid fa-bars"; }
+      document.body.classList.remove("nav-is-open");
+    };
+
     navBtn.addEventListener("click", () => {
-      const open = nav.classList.toggle("open");
-      navBtn.setAttribute("aria-expanded", String(open));
+      nav.classList.contains("open") ? closeNav() : openNav();
+    });
+
+    // Cerrar al hacer click en cualquier link del nav
+    $$("a", nav).forEach((link) => {
+      link.addEventListener("click", closeNav);
+    });
+
+    // Cerrar al hacer click en el backdrop (fuera del nav)
+    document.addEventListener("click", (e) => {
+      if (!nav.classList.contains("open")) return;
+      if (!nav.contains(e.target) && !navBtn.contains(e.target)) closeNav();
+    });
+
+    // Cerrar con Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && nav.classList.contains("open")) {
+        closeNav();
+        navBtn.focus();
+      }
     });
   }
 
@@ -71,6 +105,40 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  }
+
+  // Barra de progreso de scroll
+  const progressBar = $("#scrollProgress");
+  if (progressBar) {
+    const updateProgress = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? Math.min(100, (scrollTop / docHeight) * 100) : 0;
+      progressBar.style.width = pct + "%";
+      progressBar.setAttribute("aria-valuenow", Math.round(pct));
+    };
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    updateProgress();
+  }
+
+  // Scroll-spy: resalta el enlace del nav según la sección visible
+  const spySections = $$("section[id], header[id]");
+  const navLinks = $$(".site-nav a[href^='#']");
+  if (navLinks.length && spySections.length) {
+    const spyObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            navLinks.forEach((link) => {
+              const active = link.getAttribute("href") === "#" + entry.target.id;
+              link.classList.toggle("is-active", active);
+            });
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+    spySections.forEach((s) => spyObserver.observe(s));
   }
 
   // Filters
@@ -134,6 +202,30 @@ document.addEventListener("DOMContentLoaded", () => {
         e.clientY > rc.bottom;
       if (outside) modal.close();
     });
+
+    // Focus trap — mantiene el foco dentro del modal mientras está abierto
+    const FOCUSABLE = 'a[href],button:not([disabled]),input,textarea,select,[tabindex]:not([tabindex="-1"])';
+    modal.addEventListener("keydown", (e) => {
+      if (e.key !== "Tab") return;
+      const focusable = [...modal.querySelectorAll(FOCUSABLE)].filter(
+        (el) => !el.closest("[hidden]") && el.offsetParent !== null
+      );
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+      } else {
+        if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+
+    // Mover foco al modal al abrirlo, restaurarlo al cerrarlo
+    let lastFocus = null;
+    $$(".open-modal").forEach((btn) => {
+      btn.addEventListener("mousedown", () => { lastFocus = btn; });
+    });
+    modal.addEventListener("close", () => { lastFocus?.focus(); });
   }
 
   // Carruseles de evolución de diseños
@@ -143,7 +235,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const track = $(".carousel-track", carousel);
     if (!track) return;
 
-    const slides = $$("img", track);
+    // Soporta tanto <img> directo como <picture> wrapping
+    const slides = $$("picture, img:not(picture img)", track);
     if (!slides.length) return;
 
     const prevBtn = $(".carousel-btn.prev", carousel);
@@ -153,6 +246,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const dots = card ? $$(".carousel-dots .dot", card) : [];
 
     let index = 0;
+
+    const stageDescs = card ? $$(".stage-desc", card) : [];
 
     const showSlide = (i) => {
       const total = slides.length;
@@ -170,6 +265,10 @@ document.addEventListener("DOMContentLoaded", () => {
         dot.classList.toggle("is-active", active);
         dot.setAttribute("aria-selected", String(active));
         dot.setAttribute("tabindex", active ? "0" : "-1");
+      });
+
+      stageDescs.forEach((desc, idx) => {
+        desc.classList.toggle("is-active", idx === newIndex);
       });
 
       index = newIndex;
@@ -191,15 +290,31 @@ document.addEventListener("DOMContentLoaded", () => {
     showSlide(0);
   });
 
-  // Form validation (client side)
+  // Toast notifications
+  const showToast = (msg, type = "ok") => {
+    const container = $("#toastContainer");
+    if (!container) return;
+    const toast = document.createElement("div");
+    toast.className = "toast toast--" + type;
+    toast.setAttribute("role", "status");
+    toast.innerHTML = `<i class="fa-solid ${type === "ok" ? "fa-circle-check" : "fa-circle-exclamation"}"></i> ${msg}`;
+    container.appendChild(toast);
+    requestAnimationFrame(() => toast.classList.add("toast--visible"));
+    setTimeout(() => {
+      toast.classList.remove("toast--visible");
+      setTimeout(() => toast.remove(), 400);
+    }, 4500);
+  };
+
+  // Form validation + Formspree submit
   const form = $(".contact-form");
   if (form) {
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
       let ok = true;
 
       form.querySelectorAll("input[required], textarea[required]").forEach((field) => {
         const error = field.parentElement?.querySelector(".error") || null;
-
         if (!field.value.trim()) {
           ok = false;
           if (error) error.textContent = "Este campo es obligatorio.";
@@ -211,11 +326,30 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-      if (ok) {
-        alert("¡Gracias! Me pondré en contacto.");
-        form.reset();
-      } else {
-        e.preventDefault();
+      if (!ok) return;
+
+      const submitBtn = form.querySelector("[type=submit]");
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Enviando…"; }
+
+      try {
+        const data = new FormData(form);
+        const res = await fetch("https://formspree.io/f/YOUR_FORMSPREE_ID", {
+          method: "POST",
+          body: data,
+          headers: { Accept: "application/json" },
+        });
+
+        if (res.ok) {
+          showToast("¡Mensaje enviado! Te respondo en menos de 24h.", "ok");
+          form.reset();
+        } else {
+          const json = await res.json().catch(() => ({}));
+          showToast(json?.errors?.[0]?.message || "Error al enviar. Intenta de nuevo.", "error");
+        }
+      } catch (_) {
+        showToast("Error de red. Escríbeme a tonathiupalma@gmail.com", "error");
+      } finally {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Enviar'; }
       }
     });
   }
@@ -315,8 +449,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Estilo
-  const colBrand = "#f2b705";
-  const colInk = "#f7f3e8";
+  const colBrand = "#6366f1";
+  const colInk = "#e8ecf4";
 
   let t = 0;
 
@@ -446,8 +580,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const rootStyles = getComputedStyle(document.documentElement);
   const dpi = Math.max(1, window.devicePixelRatio || 1);
 
-  const colInk = (rootStyles.getPropertyValue("--ink") || "").trim() || "#f7f3e8";
-  const colBrand = (rootStyles.getPropertyValue("--brand") || "").trim() || "#f2b705";
+  const colInk = (rootStyles.getPropertyValue("--ink") || "").trim() || "#e8ecf4";
+  const colBrand = (rootStyles.getPropertyValue("--brand") || "").trim() || "#6366f1";
 
   const isEn = document.documentElement.lang === "en";
   const phrases = isEn

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es" class="no-js">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Página no encontrada · Tonathiu Palma</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .error-page{
+      min-height:100vh;
+      display:flex;flex-direction:column;
+      align-items:center;justify-content:center;
+      text-align:center;
+      padding:40px 20px;
+      gap:16px;
+    }
+    .error-code{
+      font:800 clamp(80px,20vw,160px)/1 Poppins,Inter,system-ui;
+      color:var(--brand);
+      margin:0;
+      opacity:.18;
+      letter-spacing:-.04em;
+    }
+    .error-title{font-size:clamp(22px,4vw,36px);font-weight:800;margin:0}
+    .error-desc{color:var(--muted);max-width:420px;margin:0}
+    .error-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+  </style>
+</head>
+<body>
+  <main class="error-page">
+    <p class="error-code" aria-hidden="true">404</p>
+    <h1 class="error-title">Esta página no existe</h1>
+    <p class="error-desc">Puede que el enlace esté roto o la URL haya cambiado. No te preocupes, desde aquí puedes volver al portafolio.</p>
+    <div class="error-actions">
+      <a class="btn" href="index.html"><i class="fa-solid fa-house"></i> Ir al inicio</a>
+      <a class="btn ghost" href="index.html#proyectos"><i class="fa-solid fa-eye"></i> Ver proyectos</a>
+      <a class="btn ghost" href="index.html#contacto"><i class="fa-solid fa-envelope"></i> Contacto</a>
+    </div>
+  </main>
+</body>
+</html>

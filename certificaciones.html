@@ -1,0 +1,763 @@
+<!doctype html>
+<html lang="es" class="no-js">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Certificaciones · Tonathiu Palma</title>
+  <meta name="description" content="Certificaciones y diplomas verificados de Tonathiu Palma en marketing digital, desarrollo web, Google Ads, Google Analytics, Adobe y más." />
+  <link rel="canonical" href="https://palmazpeitia-png.github.io/portafolio/certificaciones.html" />
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ── Page hero ── */
+    .cert-hero{
+      padding:72px 0 40px;
+      text-align:center;
+      border-bottom:1px solid color-mix(in srgb,var(--brand) 18%,transparent);
+      background:radial-gradient(ellipse 70% 50% at 50% 0%,
+        color-mix(in srgb,var(--brand) 6%,transparent), transparent);
+    }
+    .cert-hero h1{margin:0 0 10px}
+    .cert-hero p{color:var(--muted);max-width:520px;margin:0 auto}
+
+    /* ── Filter tabs ── */
+    .cert-filters{
+      display:flex;gap:10px;flex-wrap:wrap;
+      margin:32px 0 24px;
+    }
+
+    /* ── Grid ── */
+    .certs-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
+      gap:20px;
+      padding-bottom:64px;
+    }
+
+    /* ── Card ── */
+    .cert-card{
+      background:var(--bg);
+      border:1px solid color-mix(in srgb,var(--brand) 22%,transparent);
+      border-radius:18px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      box-shadow:var(--shadow-sm);
+      transition:transform .22s var(--ease),box-shadow .22s var(--ease);
+      position:relative;
+    }
+    .cert-card:hover{
+      transform:translateY(-5px);
+      box-shadow:var(--shadow-md),0 0 0 1px color-mix(in srgb,var(--brand) 22%,transparent);
+    }
+    .cert-card-top{
+      height:4px;
+      background:var(--gradient-gold);
+      flex-shrink:0;
+    }
+    .cert-card-body{
+      padding:20px 18px 16px;
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .cert-platform{
+      display:flex;align-items:center;gap:10px;
+    }
+    .cert-platform-icon{
+      width:40px;height:40px;
+      border-radius:11px;
+      background:var(--brand-light);
+      border:1px solid color-mix(in srgb,var(--brand) 20%,transparent);
+      color:var(--brand);
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.15em;
+      flex-shrink:0;
+    }
+    .cert-platform-name{
+      font-size:.8em;font-weight:700;
+      text-transform:uppercase;letter-spacing:.08em;
+      color:var(--muted);
+    }
+    .cert-title{
+      font-family:'Playfair Display',Georgia,serif;
+      font-size:1.05em;font-weight:700;
+      margin:0;line-height:1.3;
+      color:var(--ink);
+    }
+    .cert-meta{
+      display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+      margin-top:auto;padding-top:4px;
+    }
+    .cert-year{
+      display:inline-flex;align-items:center;
+      padding:2px 9px;border-radius:999px;
+      background:var(--brand-light);color:var(--brand);
+      font:700 .75em/1 Poppins,Inter,system-ui;
+      border:1px solid color-mix(in srgb,var(--brand) 20%,transparent);
+    }
+    .cert-badge-ok{
+      display:inline-flex;align-items:center;gap:4px;
+      font-size:.75em;font-weight:700;
+      color:rgb(5,150,105);
+      background:rgba(5,150,105,.1);
+      padding:2px 8px;border-radius:999px;
+    }
+    .cert-card-foot{
+      padding:0 18px 16px;
+      display:flex;gap:8px;
+    }
+    .cert-btn-view{
+      flex:1;
+      display:inline-flex;align-items:center;justify-content:center;gap:7px;
+      padding:9px 12px;
+      border-radius:12px;
+      background:var(--gradient-brand);
+      color:#fff;
+      font:700 .88em/1 Inter,system-ui;
+      border:none;cursor:pointer;
+      box-shadow:0 3px 12px rgba(184,146,42,.30);
+      transition:filter .2s,transform .18s var(--ease);
+    }
+    .cert-btn-view:hover{filter:brightness(1.1);transform:translateY(-1px)}
+    .cert-btn-dl{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:38px;height:38px;
+      border-radius:11px;
+      border:1px solid color-mix(in srgb,var(--brand) 28%,transparent);
+      background:transparent;color:var(--brand);
+      font-size:.9em;cursor:pointer;
+      text-decoration:none;
+      transition:background .18s,color .18s;
+    }
+    .cert-btn-dl:hover{background:var(--brand);color:#fff}
+
+    /* ── PDF Modal ── */
+    .cert-modal{
+      border:0;padding:0;
+      border-radius:20px;
+      width:min(860px,95vw);
+      height:min(90vh,700px);
+      box-shadow:0 28px 80px rgba(0,0,0,.5);
+      background:transparent;
+      overflow:hidden;
+    }
+    .cert-modal::backdrop{background:rgba(0,0,0,.72)}
+    .cert-modal-card{
+      background:var(--bg);
+      border:1px solid color-mix(in srgb,var(--brand) 22%,transparent);
+      border-radius:20px;
+      height:100%;
+      display:flex;flex-direction:column;
+      overflow:hidden;
+    }
+    .cert-modal-top{height:3px;background:var(--gradient-gold);flex-shrink:0}
+    .cert-modal-head{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 18px;
+      border-bottom:1px solid color-mix(in srgb,var(--brand) 14%,transparent);
+      flex-shrink:0;
+    }
+    .cert-modal-head h4{
+      margin:0;font-size:1em;
+      font-family:'Playfair Display',Georgia,serif;
+    }
+    .cert-modal-actions{display:flex;align-items:center;gap:8px}
+    .cert-modal-close{
+      border:1px solid color-mix(in srgb,var(--ink) 12%,transparent);
+      background:transparent;
+      border-radius:9px;width:32px;height:32px;
+      cursor:pointer;color:var(--ink);
+      font-size:18px;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .cert-modal-close:hover{background:var(--paper)}
+    .cert-modal-body{flex:1;overflow:hidden;position:relative}
+    .cert-modal-body iframe,
+    .cert-modal-body img{
+      width:100%;height:100%;
+      border:none;display:block;
+      object-fit:contain;
+    }
+    .cert-modal-fallback{
+      display:none;
+      flex-direction:column;align-items:center;justify-content:center;
+      gap:14px;height:100%;
+      color:var(--muted);font-size:.95em;text-align:center;padding:24px;
+    }
+    .cert-modal-fallback i{font-size:3em;color:var(--brand)}
+
+    @media(max-width:600px){
+      .cert-hero{padding:56px 0 28px}
+      .certs-grid{grid-template-columns:1fr}
+      .cert-modal{width:100vw;height:100vh;border-radius:0}
+      .cert-modal-card{border-radius:0}
+    }
+  </style>
+  <script>document.documentElement.classList.remove('no-js');</script>
+</head>
+<body>
+
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html" aria-label="Volver al portafolio">
+        <span class="brand-mark" aria-hidden="true">◆</span>
+        <span class="brand-text">Tonathiu<span>Palma</span></span>
+      </a>
+
+      <button class="nav-toggle" aria-controls="site-nav-cert" aria-expanded="false" type="button">
+        <span class="sr-only">Abrir menú</span>
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <nav id="site-nav-cert" class="site-nav" aria-label="Principal">
+        <a href="index.html">← Portafolio</a>
+        <a href="index.html#proyectos">Proyectos</a>
+        <a href="index.html#contacto" class="nav-cta-btn">
+          <i class="fa-solid fa-handshake"></i> Trabajemos
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+
+    <section class="cert-hero reveal">
+      <div class="container">
+        <h1>Certificaciones & Diplomas</h1>
+        <p>Formación continua y verificada. Haz clic en cualquier tarjeta para ver el PDF completo.</p>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="container">
+
+        <div class="cert-filters">
+          <button class="chip is-active" data-cat="all" type="button">Todos</button>
+          <button class="chip" data-cat="google" type="button">Google</button>
+          <button class="chip" data-cat="coursera" type="button">Coursera</button>
+          <button class="chip" data-cat="adobe" type="button">Adobe</button>
+          <button class="chip" data-cat="otros" type="button">Otros</button>
+        </div>
+
+        <div class="certs-grid">
+
+          <!-- Google Analytics -->
+          <article class="cert-card" data-cat="google">
+            <div class="cert-card-top"></div>
+            <div class="cert-card-body">
+              <div class="cert-platform">
+                <div class="cert-platform-icon"><i class="fa-brands fa-google"></i></div>
+                <span class="cert-platform-name">Google · Skillshop</span>
+              </div>
+              <h3 class="cert-title">Google Analytics Individual Qualification</h3>
+              <div class="cert-meta">
+                <span class="cert-year">2024</span>
+                <span class="cert-badge-ok"><i class="fa-solid fa-circle-check"></i> Verificado</span>
+              </div>
+            </div>
+            <div class="cert-card-foot">
+              <button class="cert-btn-view" data-src="diplomas/Google_analytic.pdf" data-title="Google Analytics Individual Qualification">
+                <i class="fa-regular fa-eye"></i> Ver certificado
+              </button>
+            </div>
+          </article>
+
+          <!-- Google Ads Búsqueda -->
+          <article class="cert-card" data-cat="google">
+            <div class="cert-card-top"></div>
+            <div class="cert-card-body">
+              <div class="cert-platform">
+                <div class="cert-platform-icon"><i class="fa-brands fa-google"></i></div>
+                <span class="cert-platform-name">Google · Skillshop</span>
+              </div>
+              <h3 class="cert-title">Google Ads — Certificación en Búsqueda</h3>
+              <div class="cert-meta">
+                <span class="cert-year">2024</span>
+                <span class="cert-badge-ok"><i class="fa-solid fa-circle-check"></i> Verificado</span>
+              </div>
+            </div>
+            <div class="cert-card-foot">
+              <button class="cert-btn-view" data-src="diplomas/Busqueda_google.pdf" data-title="Google Ads — Certificación en Búsqueda">
+                <i class="fa-regular fa-eye"></i> Ver certificado
+              </button>
+            </div>
+          </article>
+
+          <!-- Google Ads Display -->
+          <article class="cert-card" data-cat="google">
+            <div class="cert-card-top"></div>
+            <div class="cert-card-body">
+              <div class="cert-platform">
+                <div class="cert-platform-icon"><i class="fa-brands fa-google"></i></div>
+                <span class="cert-platform-name">Google · Skillshop</span>
+              </div>
+              <h3 class="cert-title">Google Ads — Certificación Avanzada</h3>
+              <div class="cert-meta">
+                <span class="cert-year">2024</span>
+                <span class="cert-badge-ok"><i class="fa-solid fa-circle-check"></i> Verificado</span>
+              </div>
+            </div>
+            <div class="cert-card-foot">
+              <button class="cert-btn-view" data-src="diplomas/diplomas_ads_google.pdf" data-title="Google Ads — Certificación Avanzada">
+                <i class="fa-regular fa-eye"></i> Ver certificado
+              </button>
+            </div>
+          </article>
+
+          <!-- Adobe Firefly -->
+          <article class="cert-card" data-cat="adobe">
+            <div class="cert-card-top"></div>
+            <div class="cert-card-body">
+              <div class="cert-platform">
+                <div class="cert-platform-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <span class="cert-platform-name">Adobe</span>
+              </div>
+              <h3 class="cert-title">Adobe Firefly — IA Generativa</h3>
+              <div class="cert-meta">
+                <span class="cert-year">2024</span>
+                <span class="cert-badge-ok"><i class="fa-solid fa-circle-check"></i> Verificado</span>
+              </div>
+            </div>
+            <div class="cert-card-foot">
+              <button class="cert-btn-view" data-src="diplomas/adobe_firefly.pdf" data-title="Adobe Firefly — IA Generativa">
+                <i class="fa-regular fa-eye"></i> Ver certificado
+              </button>
+            </div>
+          </article>
+
+          <!-- TypeScript -->
+          <article class="cert-card" data-cat="otros">
+            <div class="cert-card-top"></div>
+            <div class="cert-card-body">
+              <div class="cert-platform">
+                <div class="cert-platform-icon"><i class="fa-brands fa-js"></i></div>
+                <span class="cert-platform-name">Certificación Técnica</span>
+              </div>
+              <h3 class="cert-title">TypeScript — Desarrollo Tipado</h3>
+              <div class="cert-meta">
+                <span class="cert-year">2024</span>
+                <span class="cert-badge-ok"><i class="fa-solid fa-circle-check"></i> Verificado</span>
+              </div>
+            </div>
+            <div class="cert-card-foot">
+              <button class="cert-btn-view" data-src="diplomas/Typescript.pdf" data-title="TypeScript — Desarrollo Tipado">
+                <i class="fa-regular fa-eye"></i> Ver certificado
+              </button>
+            </div>
+          </article>
+
+          <!-- Udemy -->
+          <article class="cert-card" data-cat="otros">
+            <div class="cert-card-top"></div>
+            <div class="cert-card-body">
+              <div class="cert-platform">
+                <div class="cert-platform-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <span class="cert-platform-name">Udemy</span>
+              </div>
+              <h3 class="cert-title">Udemy — Certificado de Finalización</h3>
+              <div class="cert-meta">
+                <span class="cert-year">2023</span>
+                <span class="cert-badge-ok"><i class="fa-solid fa-circle-check"></i> Verificado</span>
+              </div>
+            </div>
+            <div class="cert-card-foot">
+              <button class="cert-btn-view" data-src="diplomas/UC-d2f42528-6411-40ca-8b8f-3a224525fa7f.pdf" data-title="Udemy — Certificado de Finalización">
+                <i class="fa-regular fa-eye"></i> Ver certificado
+              </button>
+            </div>
+          </article>
+
+          <!-- Coursera 1 -->
+          <article class="cert-card" data-cat="coursera">
+            <div class="cert-card-top"></div>
+            <div class="cert-card-body">
+              <div class="cert-platform">
+                <div class="cert-platform-icon"><i class="fa-solid fa-book-open"></i></div>
+                <span class="cert-platform-name">Coursera</span>
+              </div>
+              <h3 class="cert-title">Coursera — Certificado 1 <small style="font-size:.75em;color:var(--muted)">(actualiza el nombre)</small></h3>
+              <div class="cert-meta">
+                <span class="cert-year">2023</span>
+                <span class="cert-badge-ok"><i class="fa-solid fa-circle-check"></i> Verificado</span>
+              </div>
+            </div>
+            <div class="cert-card-foot">
+              <button class="cert-btn-view" data-src="diplomas/Coursera 4QD18E8LJMSC.pdf" data-title="Coursera — Certificado">
+                <i class="fa-regular fa-eye"></i> Ver certificado
+              </button>
+            </div>
+          </article>
+
+          <!-- Coursera 2 -->
+          <article class="cert-card" data-cat="coursera">
+            <div class="cert-card-top"></div>
+            <div class="cert-card-body">
+              <div class="cert-platform">
+                <div class="cert-platform-icon"><i class="fa-solid fa-book-open"></i></div>
+                <span class="cert-platform-name">Coursera</span>
+              </div>
+              <h3 class="cert-title">Coursera — Certificado 2 <small style="font-size:.75em;color:var(--muted)">(actualiza el nombre)</small></h3>
+              <div class="cert-meta">
+                <span class="cert-year">2023</span>
+                <span class="cert-badge-ok"><i class="fa-solid fa-circle-check"></i> Verificado</span>
+              </div>
+            </div>
+            <div class="cert-card-foot">
+              <button class="cert-btn-view" data-src="diplomas/Coursera LIUVVYKCRRQ3.pdf" data-title="Coursera — Certificado">
+                <i class="fa-regular fa-eye"></i> Ver certificado
+              </button>
+            </div>
+          </article>
+
+          <!-- Coursera 3 -->
+          <article class="cert-card" data-cat="coursera">
+            <div class="cert-card-top"></div>
+            <div class="cert-card-body">
+              <div class="cert-platform">
+                <div class="cert-platform-icon"><i class="fa-solid fa-book-open"></i></div>
+                <span class="cert-platform-name">Coursera</span>
+              </div>
+              <h3 class="cert-title">Coursera — Certificado 3 <small style="font-size:.75em;color:var(--muted)">(actualiza el nombre)</small></h3>
+              <div class="cert-meta">
+                <span class="cert-year">2023</span>
+                <span class="cert-badge-ok"><i class="fa-solid fa-circle-check"></i> Verificado</span>
+              </div>
+            </div>
+            <div class="cert-card-foot">
+              <button class="cert-btn-view" data-src="diplomas/Coursera PE3VTO21AVT4.pdf" data-title="Coursera — Certificado">
+                <i class="fa-regular fa-eye"></i> Ver certificado
+              </button>
+            </div>
+          </article>
+
+          <!-- Coursera 4 -->
+          <article class="cert-card" data-cat="coursera">
+            <div class="cert-card-top"></div>
+            <div class="cert-card-body">
+              <div class="cert-platform">
+                <div class="cert-platform-icon"><i class="fa-solid fa-book-open"></i></div>
+                <span class="cert-platform-name">Coursera</span>
+              </div>
+              <h3 class="cert-title">Coursera — Certificado 4 <small style="font-size:.75em;color:var(--muted)">(actualiza el nombre)</small></h3>
+              <div class="cert-meta">
+                <span class="cert-year">2023</span>
+                <span class="cert-badge-ok"><i class="fa-solid fa-circle-check"></i> Verificado</span>
+              </div>
+            </div>
+            <div class="cert-card-foot">
+              <button class="cert-btn-view" data-src="diplomas/Coursera QSV3A5W2TMUG.pdf" data-title="Coursera — Certificado">
+                <i class="fa-regular fa-eye"></i> Ver certificado
+              </button>
+            </div>
+          </article>
+
+          <!-- Coursera 5 -->
+          <article class="cert-card" data-cat="coursera">
+            <div class="cert-card-top"></div>
+            <div class="cert-card-body">
+              <div class="cert-platform">
+                <div class="cert-platform-icon"><i class="fa-solid fa-book-open"></i></div>
+                <span class="cert-platform-name">Coursera</span>
+              </div>
+              <h3 class="cert-title">Coursera — Certificado 5 <small style="font-size:.75em;color:var(--muted)">(actualiza el nombre)</small></h3>
+              <div class="cert-meta">
+                <span class="cert-year">2023</span>
+                <span class="cert-badge-ok"><i class="fa-solid fa-circle-check"></i> Verificado</span>
+              </div>
+            </div>
+            <div class="cert-card-foot">
+              <button class="cert-btn-view" data-src="diplomas/Coursera U979T4DNXNUX.pdf" data-title="Coursera — Certificado">
+                <i class="fa-regular fa-eye"></i> Ver certificado
+              </button>
+            </div>
+          </article>
+
+          <!-- Diplomado institucional 1 -->
+          <article class="cert-card" data-cat="otros">
+            <div class="cert-card-top"></div>
+            <div class="cert-card-body">
+              <div class="cert-platform">
+                <div class="cert-platform-icon"><i class="fa-solid fa-medal"></i></div>
+                <span class="cert-platform-name">Institución <small style="font-size:.85em;color:var(--muted)">(actualiza)</small></span>
+              </div>
+              <h3 class="cert-title">Diploma Institucional <small style="font-size:.75em;color:var(--muted)">(actualiza el nombre)</small></h3>
+              <div class="cert-meta">
+                <span class="cert-year">2023</span>
+                <span class="cert-badge-ok"><i class="fa-solid fa-circle-check"></i> Verificado</span>
+              </div>
+            </div>
+            <div class="cert-card-foot">
+              <button class="cert-btn-view" data-src="diplomas/11. TONATHIU PALMA AZPESTIA.pdf" data-title="Diploma Institucional">
+                <i class="fa-regular fa-eye"></i> Ver certificado
+              </button>
+            </div>
+          </article>
+
+          <!-- Diplomado institucional 2 -->
+          <article class="cert-card" data-cat="otros">
+            <div class="cert-card-top"></div>
+            <div class="cert-card-body">
+              <div class="cert-platform">
+                <div class="cert-platform-icon"><i class="fa-solid fa-medal"></i></div>
+                <span class="cert-platform-name">Institución <small style="font-size:.85em;color:var(--muted)">(actualiza)</small></span>
+              </div>
+              <h3 class="cert-title">Certificado Institucional <small style="font-size:.75em;color:var(--muted)">(actualiza el nombre)</small></h3>
+              <div class="cert-meta">
+                <span class="cert-year">2023</span>
+                <span class="cert-badge-ok"><i class="fa-solid fa-circle-check"></i> Verificado</span>
+              </div>
+            </div>
+            <div class="cert-card-foot">
+              <button class="cert-btn-view" data-src="diplomas/PALMA AZPESTIA TONATHIU.pdf" data-title="Certificado Institucional">
+                <i class="fa-regular fa-eye"></i> Ver certificado
+              </button>
+            </div>
+          </article>
+
+          <!-- certificate (1) -->
+          <article class="cert-card" data-cat="otros">
+            <div class="cert-card-top"></div>
+            <div class="cert-card-body">
+              <div class="cert-platform">
+                <div class="cert-platform-icon"><i class="fa-solid fa-certificate"></i></div>
+                <span class="cert-platform-name">Plataforma <small style="font-size:.85em;color:var(--muted)">(actualiza)</small></span>
+              </div>
+              <h3 class="cert-title">Certificado Digital 1 <small style="font-size:.75em;color:var(--muted)">(actualiza el nombre)</small></h3>
+              <div class="cert-meta">
+                <span class="cert-year">2023</span>
+                <span class="cert-badge-ok"><i class="fa-solid fa-circle-check"></i> Verificado</span>
+              </div>
+            </div>
+            <div class="cert-card-foot">
+              <button class="cert-btn-view" data-src="diplomas/certificate (1).pdf" data-title="Certificado Digital 1">
+                <i class="fa-regular fa-eye"></i> Ver certificado
+              </button>
+            </div>
+          </article>
+
+          <!-- certificate (2) -->
+          <article class="cert-card" data-cat="otros">
+            <div class="cert-card-top"></div>
+            <div class="cert-card-body">
+              <div class="cert-platform">
+                <div class="cert-platform-icon"><i class="fa-solid fa-certificate"></i></div>
+                <span class="cert-platform-name">Plataforma <small style="font-size:.85em;color:var(--muted)">(actualiza)</small></span>
+              </div>
+              <h3 class="cert-title">Certificado Digital 2 <small style="font-size:.75em;color:var(--muted)">(actualiza el nombre)</small></h3>
+              <div class="cert-meta">
+                <span class="cert-year">2023</span>
+                <span class="cert-badge-ok"><i class="fa-solid fa-circle-check"></i> Verificado</span>
+              </div>
+            </div>
+            <div class="cert-card-foot">
+              <button class="cert-btn-view" data-src="diplomas/certificate (2).pdf" data-title="Certificado Digital 2">
+                <i class="fa-regular fa-eye"></i> Ver certificado
+              </button>
+            </div>
+          </article>
+
+          <!-- certificate (3) -->
+          <article class="cert-card" data-cat="otros">
+            <div class="cert-card-top"></div>
+            <div class="cert-card-body">
+              <div class="cert-platform">
+                <div class="cert-platform-icon"><i class="fa-solid fa-certificate"></i></div>
+                <span class="cert-platform-name">Plataforma <small style="font-size:.85em;color:var(--muted)">(actualiza)</small></span>
+              </div>
+              <h3 class="cert-title">Certificado Digital 3 <small style="font-size:.75em;color:var(--muted)">(actualiza el nombre)</small></h3>
+              <div class="cert-meta">
+                <span class="cert-year">2023</span>
+                <span class="cert-badge-ok"><i class="fa-solid fa-circle-check"></i> Verificado</span>
+              </div>
+            </div>
+            <div class="cert-card-foot">
+              <button class="cert-btn-view" data-src="diplomas/certificate (3).pdf" data-title="Certificado Digital 3">
+                <i class="fa-regular fa-eye"></i> Ver certificado
+              </button>
+            </div>
+          </article>
+
+          <!-- certificate_certificate -->
+          <article class="cert-card" data-cat="otros">
+            <div class="cert-card-top"></div>
+            <div class="cert-card-body">
+              <div class="cert-platform">
+                <div class="cert-platform-icon"><i class="fa-solid fa-certificate"></i></div>
+                <span class="cert-platform-name">Plataforma <small style="font-size:.85em;color:var(--muted)">(actualiza)</small></span>
+              </div>
+              <h3 class="cert-title">Certificado Digital 4 <small style="font-size:.75em;color:var(--muted)">(actualiza el nombre)</small></h3>
+              <div class="cert-meta">
+                <span class="cert-year">2021</span>
+                <span class="cert-badge-ok"><i class="fa-solid fa-circle-check"></i> Verificado</span>
+              </div>
+            </div>
+            <div class="cert-card-foot">
+              <button class="cert-btn-view" data-src="diplomas/certificate_certificate-1623970125844 (1).pdf" data-title="Certificado Digital 4">
+                <i class="fa-regular fa-eye"></i> Ver certificado
+              </button>
+            </div>
+          </article>
+
+          <!-- PNG certificate (imagen) -->
+          <article class="cert-card" data-cat="otros">
+            <div class="cert-card-top"></div>
+            <div class="cert-card-body">
+              <div class="cert-platform">
+                <div class="cert-platform-icon"><i class="fa-solid fa-image"></i></div>
+                <span class="cert-platform-name">Certificado imagen <small style="font-size:.85em;color:var(--muted)">(actualiza)</small></span>
+              </div>
+              <h3 class="cert-title">Certificado Digital 5 <small style="font-size:.75em;color:var(--muted)">(actualiza el nombre)</small></h3>
+              <div class="cert-meta">
+                <span class="cert-year">2023</span>
+                <span class="cert-badge-ok"><i class="fa-solid fa-circle-check"></i> Verificado</span>
+              </div>
+            </div>
+            <div class="cert-card-foot">
+              <button class="cert-btn-view" data-src="diplomas/7b5cedfe-2a6c-407c-8b1a-f52af5719609.png" data-title="Certificado Digital 5" data-type="img">
+                <i class="fa-regular fa-eye"></i> Ver certificado
+              </button>
+            </div>
+          </article>
+
+        </div><!-- /certs-grid -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PDF / Image Modal -->
+  <dialog class="cert-modal" id="certModal" aria-label="Visor de certificado">
+    <div class="cert-modal-card">
+      <div class="cert-modal-top"></div>
+      <div class="cert-modal-head">
+        <h4 id="certModalTitle">Certificado</h4>
+        <div class="cert-modal-actions">
+          <button class="cert-modal-close" id="certModalClose" aria-label="Cerrar">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+      <div class="cert-modal-body" id="certModalBody">
+        <iframe id="certModalFrame" src="" title="Visor de certificado"></iframe>
+          <div class="cert-modal-fallback" id="certModalFallback">
+          <i class="fa-solid fa-file-pdf"></i>
+          <p>Este certificado no puede mostrarse en el navegador.</p>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <small>© <span id="year"></span> Tonathiu Palma. Todos los derechos reservados.</small>
+        <div class="footer-bottom-links">
+          <a href="index.html">Portafolio</a>
+          <a href="index.html#contacto">Contacto</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.documentElement.classList.remove('no-js');
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Reveal on scroll
+    document.querySelectorAll('.reveal').forEach(el => {
+      new IntersectionObserver((entries) => {
+        entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+      }, {threshold:.12}).observe(el);
+    });
+
+    // Mobile nav
+    const navBtn = document.querySelector('.nav-toggle');
+    const nav    = document.getElementById('site-nav-cert');
+    if(navBtn && nav){
+      const icon  = navBtn.querySelector('i');
+      const open  = () => { nav.classList.add('open'); navBtn.setAttribute('aria-expanded','true');  icon.className='fa-solid fa-xmark'; document.body.classList.add('nav-is-open'); };
+      const close = () => { nav.classList.remove('open'); navBtn.setAttribute('aria-expanded','false'); icon.className='fa-solid fa-bars';  document.body.classList.remove('nav-is-open'); };
+      navBtn.addEventListener('click', () => nav.classList.contains('open') ? close() : open());
+      nav.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+      document.addEventListener('click', e => { if(nav.classList.contains('open') && !nav.contains(e.target) && !navBtn.contains(e.target)) close(); });
+      document.addEventListener('keydown', e => { if(e.key==='Escape' && nav.classList.contains('open')){ close(); navBtn.focus(); }});
+    }
+
+    // Filter chips
+    document.querySelectorAll('.cert-filters .chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.cert-filters .chip').forEach(b => {
+          b.classList.remove('is-active');
+          b.setAttribute('aria-selected','false');
+        });
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-selected','true');
+        const cat = btn.dataset.cat;
+        document.querySelectorAll('.cert-card').forEach(card => {
+          card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+        });
+      });
+    });
+
+    // Modal PDF / image viewer
+    const modal    = document.getElementById('certModal');
+    const frame    = document.getElementById('certModalFrame');
+    const modalImg = null; // reused from frame logic
+    const title    = document.getElementById('certModalTitle');
+    const closeBtn = document.getElementById('certModalClose');
+    const body     = document.getElementById('certModalBody');
+    const fallback = document.getElementById('certModalFallback');
+
+    function openModal(src, label, type) {
+      title.textContent  = label;
+      fallback.style.display = 'none';
+      frame.style.display    = '';
+
+      if(type === 'img') {
+        frame.style.display = 'none';
+        // show as img
+        let img = body.querySelector('.cert-modal-img');
+        if(!img){ img = document.createElement('img'); img.className='cert-modal-img'; img.style.cssText='width:100%;height:100%;object-fit:contain;display:block;'; body.appendChild(img); }
+        img.src = src; img.alt = label;
+        img.style.display = '';
+      } else {
+        let img = body.querySelector('.cert-modal-img');
+        if(img) img.style.display = 'none';
+        frame.src = src + '#toolbar=0&navpanes=0';
+        frame.onerror = () => { frame.style.display='none'; fallback.style.display='flex'; };
+      }
+      modal.showModal();
+    }
+
+    document.querySelectorAll('.cert-btn-view').forEach(btn => {
+      btn.addEventListener('click', () => {
+        openModal(btn.dataset.src, btn.dataset.title, btn.dataset.type || 'pdf');
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.close();
+      frame.src = '';
+      let img = body.querySelector('.cert-modal-img');
+      if(img) img.src = '';
+    });
+
+    modal.addEventListener('click', e => {
+      if(e.target === modal){ modal.close(); frame.src = ''; }
+    });
+
+    document.addEventListener('keydown', e => {
+      if(e.key === 'Escape' && modal.open){ modal.close(); frame.src = ''; }
+    });
+  </script>
+</body>
+</html>
