@@ -1,0 +1,197 @@
+/* Fase 10 — pulido visual premium */
+:root{
+  --p10-blue:#4f7cff;
+  --p10-cyan:#66d9ff;
+  --p10-ink:#07090d;
+  --p10-line:rgba(15,23,42,.10);
+  --p10-shadow:0 24px 70px rgba(15,23,42,.10);
+  --p10-radius:28px;
+}
+
+html{scroll-behavior:smooth}
+body{background:#f7f9fc}
+
+.tech-header{
+  top:12px;
+  width:min(1180px,calc(100% - 28px));
+  margin-inline:auto;
+  border:1px solid rgba(15,23,42,.08);
+  border-radius:18px;
+  box-shadow:0 12px 40px rgba(15,23,42,.08);
+}
+.tech-header .container{padding-inline:18px;min-height:62px}
+.tech-header .brand-mark{border-radius:12px}
+.tech-header .site-nav a{border-radius:999px}
+.tech-header .site-nav a:hover{background:rgba(79,124,255,.09);color:var(--p10-blue)}
+
+.tech-hero{
+  min-height:100vh;
+  padding-top:150px;
+  overflow:hidden;
+  position:relative;
+}
+.tech-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(rgba(15,23,42,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(15,23,42,.035) 1px,transparent 1px);
+  background-size:42px 42px;
+  mask-image:linear-gradient(to bottom,black,transparent 82%);
+  pointer-events:none;
+}
+.tech-hero::after{
+  content:"";
+  position:absolute;
+  width:520px;
+  height:520px;
+  border-radius:50%;
+  right:-180px;
+  top:70px;
+  background:radial-gradient(circle,rgba(79,124,255,.18),transparent 68%);
+  filter:blur(16px);
+  pointer-events:none;
+}
+.tech-hero-grid{position:relative;z-index:1}
+.tech-title{
+  max-width:8.5ch;
+  text-wrap:balance;
+  background:linear-gradient(135deg,#07090d 18%,#334155 58%,#2563eb 105%);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+.tech-lead{font-size:clamp(1.08rem,1.6vw,1.28rem)}
+.tech-profile{isolation:isolate}
+.tech-profile::before{
+  content:"";
+  position:absolute;
+  inset:20px -20px -20px 20px;
+  border:1px solid rgba(79,124,255,.26);
+  z-index:-1;
+}
+.tech-profile img{
+  border-radius:22px;
+  box-shadow:0 32px 80px rgba(15,23,42,.18);
+  transition:transform .45s ease,filter .45s ease;
+}
+.tech-profile:hover img{transform:translateY(-8px);filter:grayscale(.55)}
+.tech-status{border-radius:14px;box-shadow:0 16px 40px rgba(0,0,0,.25)}
+
+.tech-btn{
+  transition:transform .22s ease,box-shadow .22s ease,background .22s ease;
+}
+.tech-btn:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(15,23,42,.16)}
+
+.ai-section,.tech-section.dark{
+  background:
+    radial-gradient(circle at 15% 10%,rgba(79,124,255,.16),transparent 28%),
+    radial-gradient(circle at 85% 82%,rgba(102,217,255,.08),transparent 26%),
+    #07090d;
+}
+.ai-shell{gap:72px}
+.ai-intro{position:sticky;top:110px}
+.assistant-card{
+  border-color:rgba(102,217,255,.18);
+  box-shadow:0 36px 90px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.02) inset;
+}
+.assistant-top{background:linear-gradient(90deg,rgba(79,124,255,.10),transparent)}
+.assistant-messages{scrollbar-width:thin;scrollbar-color:#334155 transparent}
+.message.bot{background:linear-gradient(145deg,#121923,#0d131c)}
+.prompt-chip,.assistant-form button{transition:transform .2s ease,background .2s ease,border-color .2s ease}
+.prompt-chip:hover,.assistant-form button:hover{transform:translateY(-2px)}
+.assistant-form input:focus{outline:2px solid rgba(79,124,255,.32);border-color:var(--p10-blue)}
+
+.interactive-section{position:relative}
+.interactive-section:nth-of-type(even){background:#fff}
+.interactive-section h2{max-width:11ch;text-wrap:balance}
+.section-copy{font-size:1.05rem}
+
+.skill-panels{gap:18px}
+.skill-panel{
+  min-height:184px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  border-radius:24px;
+  box-shadow:0 12px 32px rgba(15,23,42,.05);
+}
+.skill-panel::before{
+  content:"";
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--p10-blue),var(--p10-cyan));
+  opacity:.12;
+  margin-bottom:auto;
+}
+.skill-panel.active::before,.skill-panel:hover::before{opacity:1}
+.skill-detail{box-shadow:var(--p10-shadow);border-radius:var(--p10-radius);padding:34px}
+
+.work-grid{gap:24px}
+.work-card{
+  border-radius:var(--p10-radius);
+  box-shadow:0 20px 55px rgba(15,23,42,.08);
+  transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;
+}
+.work-card:hover{transform:translateY(-10px);box-shadow:0 34px 80px rgba(15,23,42,.16);border-color:rgba(79,124,255,.38)}
+.work-card .arrow{transition:transform .3s ease}
+.work-card:hover .arrow{transform:translate(8px,-8px)}
+
+.timeline-list{max-width:980px}
+.timeline-item{padding-bottom:52px}
+.timeline-item h3{font-size:clamp(1.45rem,2.5vw,2rem)}
+.timeline-detail{font-size:1.02rem;line-height:1.75}
+
+.journal-card{
+  border-radius:var(--p10-radius);
+  min-height:300px;
+  transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;
+}
+.journal-card:hover{transform:translateY(-9px);border-color:rgba(79,124,255,.38);box-shadow:0 28px 65px rgba(0,0,0,.20)}
+
+.live-grid{gap:20px}
+.live-card{
+  min-height:170px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  border-radius:var(--p10-radius);
+  position:relative;
+  overflow:hidden;
+}
+.live-card::after{
+  content:"";
+  position:absolute;
+  width:100px;
+  height:100px;
+  right:-35px;
+  bottom:-35px;
+  border-radius:50%;
+  background:rgba(79,124,255,.13);
+}
+.live-card strong{font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.05em}
+
+.tech-section,.interactive-section,.ai-section{scroll-margin-top:96px}
+.tech-footer{background:#fff}
+
+@media(max-width:900px){
+  .tech-header{top:8px}
+  .ai-intro{position:static}
+  .ai-shell{gap:36px}
+  .tech-profile{max-width:460px}
+}
+
+@media(max-width:620px){
+  .tech-header{width:calc(100% - 16px);border-radius:15px}
+  .tech-hero{padding-top:118px}
+  .tech-title{max-width:9ch}
+  .tech-profile::before{inset:12px -10px -10px 12px}
+  .skill-panel{min-height:150px}
+  .assistant-card,.skill-detail,.work-card,.journal-card,.live-card{border-radius:20px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .tech-profile img,.tech-btn,.skill-panel,.work-card,.journal-card,.prompt-chip,.assistant-form button{transition:none}
+}
