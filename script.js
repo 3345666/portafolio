@@ -173,6 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const card = ev.currentTarget.closest(".project-card");
         if (!card) return;
         lastFocus = ev.currentTarget;
+        modal.classList.remove("is-case-evidence");
 
         if (title) title.textContent = card.dataset.title || "";
         if (desc) desc.textContent = card.dataset.desc || "";
@@ -193,6 +194,28 @@ document.addEventListener("DOMContentLoaded", () => {
           repo.href = repoHref;
           repo.hidden = repoHref === "#";
         }
+
+        if (typeof modal.showModal === "function") modal.showModal();
+      });
+    });
+
+    // Evidencia visual de los casos: reutiliza el modal sin exponer acciones de proyecto.
+    $$(".case-shot-button").forEach((btn) => {
+      btn.addEventListener("click", (ev) => {
+        const trigger = ev.currentTarget;
+        const shot = $("img", trigger);
+        if (!shot) return;
+
+        lastFocus = trigger;
+        modal.classList.add("is-case-evidence");
+        if (title) title.textContent = trigger.dataset.title || shot.alt;
+        if (desc) desc.textContent = trigger.dataset.desc || "";
+        if (img) {
+          img.src = shot.currentSrc || shot.src;
+          img.alt = shot.alt;
+        }
+        if (demo) demo.hidden = true;
+        if (repo) repo.hidden = true;
 
         if (typeof modal.showModal === "function") modal.showModal();
       });
@@ -231,7 +254,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Restaurar el foco al control que abrió el modal, también al usar teclado
-    modal.addEventListener("close", () => { lastFocus?.focus(); });
+    modal.addEventListener("close", () => {
+      modal.classList.remove("is-case-evidence");
+      lastFocus?.focus();
+    });
   }
 
   // Carruseles de evolución de diseños
