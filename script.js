@@ -336,6 +336,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!ok) return;
 
+      // Sin Formspree real configurado: abrir el cliente de correo con los datos del formulario
+      // en lugar de enviar a un endpoint inexistente. Quitar data-mailto-fallback del <form>
+      // cuando se configure un ID real de Formspree.
+      if (form.dataset.mailtoFallback === "true") {
+        const name = form.querySelector('[name="name"]')?.value.trim() || "";
+        const email = form.querySelector('[name="email"]')?.value.trim() || "";
+        const message = form.querySelector('[name="message"]')?.value.trim() || "";
+        const subject = encodeURIComponent(`Contacto desde portafolio — ${name}`);
+        const body = encodeURIComponent(`${message}\n\nEmail de contacto: ${email}`);
+        window.location.href = `mailto:tonathiupalma@gmail.com?subject=${subject}&body=${body}`;
+        showToast("Se abrió tu cliente de correo. Si no ocurre, escríbeme a tonathiupalma@gmail.com", "ok");
+        form.reset();
+        return;
+      }
+
       const submitBtn = form.querySelector("[type=submit]");
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Enviando…"; }
 
