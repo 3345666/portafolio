@@ -166,18 +166,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const actions = $$(".modal-actions a", modal);
     const demo = actions[0] || null;
     const repo = actions[1] || null;
+    let lastFocus = null;
 
     $$(".open-modal").forEach((btn) => {
       btn.addEventListener("click", (ev) => {
         const card = ev.currentTarget.closest(".project-card");
         if (!card) return;
+        lastFocus = ev.currentTarget;
 
         if (title) title.textContent = card.dataset.title || "";
         if (desc) desc.textContent = card.dataset.desc || "";
 
         const cardImg = $("img", card);
         if (img && cardImg) {
-          img.src = cardImg.src;
+          img.src = cardImg.currentSrc || cardImg.src;
           img.alt = card.dataset.title || "";
         }
 
@@ -228,11 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Mover foco al modal al abrirlo, restaurarlo al cerrarlo
-    let lastFocus = null;
-    $$(".open-modal").forEach((btn) => {
-      btn.addEventListener("mousedown", () => { lastFocus = btn; });
-    });
+    // Restaurar el foco al control que abrió el modal, también al usar teclado
     modal.addEventListener("close", () => { lastFocus?.focus(); });
   }
 
@@ -291,7 +289,23 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
           showSlide(idx);
+          return;
         }
+
+        const targetIndex = e.key === "ArrowRight"
+          ? idx + 1
+          : e.key === "ArrowLeft"
+            ? idx - 1
+            : e.key === "Home"
+              ? 0
+              : e.key === "End"
+                ? dots.length - 1
+                : null;
+
+        if (targetIndex === null) return;
+        e.preventDefault();
+        showSlide(targetIndex);
+        dots[index]?.focus();
       });
     });
 
@@ -609,18 +623,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const isEn = document.documentElement.lang === "en";
   const phrases = isEn
     ? [
-        "Neural graphs, real decisions.",
-        "Data flows → insight grows.",
-        "Signals in, strategy out.",
-        "AI that speaks marketing.",
-        "From noise to clarity.",
+        "CPL rises → review audience, creative and landing page.",
+        "CAC exceeds a sustainable level → stop scaling.",
+        "Pipeline stalls → review follow-up and automation.",
+        "ROAS drops with stable frequency → review offer and conversion.",
+        "Strong CTR, weak conversion → review the value proposition.",
       ]
     : [
-        "Conectamos negocio con datos.",
-        "Señales → insight → estrategia.",
-        "Analítica que impulsa decisiones.",
-        "IA aplicada a crecimiento.",
-        "Del ruido a la claridad.",
+        "CPL sube → revisar audiencia, creativo y landing.",
+        "CAC supera el valor sostenible → detener escalamiento.",
+        "Pipeline estancado → revisar seguimiento y automatización.",
+        "ROAS cae con frecuencia estable → revisar oferta y conversión.",
+        "Buen CTR y baja conversión → revisar la propuesta de valor.",
       ];
 
   const shapeWords = isEn

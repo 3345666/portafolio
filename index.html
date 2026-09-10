@@ -188,7 +188,7 @@
 
           <div class="target-roles" aria-label="Roles objetivo">
             <span>Roles objetivo</span>
-            <p>Marketing Manager · Growth Manager · Performance Marketing · Marketing Automation · CRM / RevOps · Business Strategy</p>
+            <p>Growth Manager · Marketing Automation · Performance Marketing · CRM / RevOps · Business Strategy</p>
           </div>
 
           <div class="hero-actions">
@@ -251,8 +251,8 @@
           <a href="#casos">Casos</a>
           <a href="#kpis">Resultados</a>
           <a href="#proyectos">Proyectos</a>
-          <a href="#testimoniales">Testimonios</a>
-          <a href="#contacto">Contacto</a>
+          <a href="#disenos">Diseños</a>
+          <a href="#certificaciones">Certificaciones</a>
         </div>
       </div>
     </nav>
@@ -606,7 +606,7 @@
 
         </div>
 
-        <div style="text-align:center;margin-top:2.5rem;">
+        <div class="section-action">
           <a href="certificaciones.html" class="btn">
             <i class="fa-solid fa-file-certificate" style="margin-right:.45em;"></i>Ver todos los certificados
           </a>
@@ -632,8 +632,8 @@
             </header>
             <p class="metric-desc">Cuánto pagas por clic. Lo uso para comparar anuncios, audiencias y ubicaciones.</p>
             <ul class="metric-notes">
-              <li>Comparo conjuntos y ubicaciones.</li>
-              <li>Detecto creativos caros.</li>
+              <li><strong>Qué observo:</strong> diferencias entre audiencias, anuncios y ubicaciones.</li>
+              <li><strong>Qué decisión tomaría:</strong> reasignar inversión si el costo sube sin mejorar la calidad del tráfico.</li>
             </ul>
           </article>
 
@@ -644,8 +644,8 @@
             </header>
             <p class="metric-desc">Cuánto cuesta cada registro. Clave para cursos y servicios.</p>
             <ul class="metric-notes">
-              <li>Relaciono CPL con ticket.</li>
-              <li>Ajusto oferta y landing.</li>
+              <li><strong>Qué observo:</strong> si el costo aumenta de forma sostenida frente al valor potencial del lead.</li>
+              <li><strong>Qué decisión tomaría:</strong> revisar segmentación, creativo y conversión de la landing.</li>
             </ul>
           </article>
 
@@ -656,8 +656,8 @@
             </header>
             <p class="metric-desc">Clics sobre impresiones. Indica si copy + diseño atraen.</p>
             <ul class="metric-notes">
-              <li>Si baja: cambio creativos.</li>
-              <li>Detecta fatiga.</li>
+              <li><strong>Qué observo:</strong> pérdida de relevancia o fatiga creativa.</li>
+              <li><strong>Qué decisión tomaría:</strong> probar un nuevo ángulo, copy o formato antes de ampliar presupuesto.</li>
             </ul>
           </article>
 
@@ -668,8 +668,8 @@
             </header>
             <p class="metric-desc">Relación inversión/ventas. Decide escalar o pausar.</p>
             <ul class="metric-notes">
-              <li>Seguimiento por campaña/anuncio.</li>
-              <li>Priorizo lo rentable.</li>
+              <li><strong>Qué observo:</strong> rentabilidad relativa por campaña y etapa del funnel.</li>
+              <li><strong>Qué decisión tomaría:</strong> escalar solo donde el retorno sea sostenible.</li>
             </ul>
           </article>
         </div>
@@ -901,18 +901,21 @@
 
           <div class="charts-grid">
             <figure class="chart-card">
-              <img src="assets/images/charts/cpl_evolucion.png" alt="Evolución del CPL por mes" loading="lazy" />
+              <img src="assets/images/charts/cpl_evolucion.png" alt="Evolución del CPL por mes" loading="lazy" width="720" height="480" />
               <figcaption>Evolución del <strong>CPL</strong> por mes.</figcaption>
+              <p class="chart-decision"><strong>Decisión:</strong> si sube de forma sostenida, reviso primero segmentación, creativo y conversión de landing.</p>
             </figure>
 
             <figure class="chart-card">
-              <img src="assets/images/charts/roas_campanas.png" alt="ROAS por campañas" loading="lazy" />
+              <img src="assets/images/charts/roas_campanas.png" alt="ROAS por campañas" loading="lazy" width="720" height="480" />
               <figcaption>Comparativa de <strong>ROAS</strong> por campaña.</figcaption>
+              <p class="chart-decision"><strong>Decisión:</strong> comparo rentabilidad antes de escalar presupuesto o pausar una campaña.</p>
             </figure>
 
             <figure class="chart-card">
-              <img src="assets/images/charts/ctr_dispositivos.png" alt="CTR por dispositivo" loading="lazy" />
+              <img src="assets/images/charts/ctr_dispositivos.png" alt="CTR por dispositivo" loading="lazy" width="600" height="480" />
               <figcaption><strong>CTR</strong> por dispositivo.</figcaption>
+              <p class="chart-decision"><strong>Decisión:</strong> uso la diferencia por dispositivo para detectar relevancia, fatiga o fricción en la experiencia.</p>
             </figure>
           </div>
 
@@ -944,19 +947,25 @@ plt.close()</code></pre>
         <div class="neural-copy neural-card">
           <div class="neural-kicker">
             <span class="neural-dot"></span>
-            Insight en tiempo real
+            Simulación de análisis
           </div>
 
-          <h2>Ideas conectadas por datos</h2>
+          <h2>Motor de decisiones</h2>
           <p>
-            Combino estrategia de negocio, growth, automatización y tecnología para generar
-            decisiones accionables (no PDFs eternos 😄).
+            Ejemplos de cómo traduzco señales de marketing y operación en preguntas, prioridades y
+            decisiones accionables. Es una demostración de razonamiento, no un diagnóstico automático.
           </p>
 
           <div class="neural-phrases">
-            <span class="neural-phrase-label">Output de la IA</span>
-            <p id="neuralPhrase" class="neural-phrase-line is-visible">Configurando red neuronal…</p>
+            <span class="neural-phrase-label">Ejemplo de decisión basada en datos</span>
+            <p id="neuralPhrase" class="neural-phrase-line is-visible">CPL sube → revisar audiencia, creativo y landing.</p>
           </div>
+
+          <ul class="decision-rules" aria-label="Ejemplos de razonamiento aplicado al negocio">
+            <li><strong>CAC supera el valor sostenible</strong><span>Detener el escalamiento y revisar economía unitaria.</span></li>
+            <li><strong>Pipeline estancado</strong><span>Revisar seguimiento, tiempos de respuesta y automatización.</span></li>
+            <li><strong>Buen CTR y baja conversión</strong><span>Revisar landing, oferta y propuesta de valor.</span></li>
+          </ul>
         </div>
 
         <div class="neural-visual">
@@ -1002,10 +1011,6 @@ plt.close()</code></pre>
                 <p>Falta de trazabilidad comercial: prospectos que se pierden, seguimiento manual y decisiones sin datos unificados.</p>
               </div>
               <div class="bc-field">
-                <span class="bc-label">Objetivo de negocio</span>
-                <p>Dar a negocios de servicios una plataforma única para gestionar clientes, pipeline, agenda e ingresos.</p>
-              </div>
-              <div class="bc-field">
                 <span class="bc-label">Estrategia</span>
                 <p>Diseñar el producto desde la operación comercial: CRM, agenda, cobros y automatización como un mismo flujo, no como módulos sueltos.</p>
               </div>
@@ -1013,17 +1018,28 @@ plt.close()</code></pre>
                 <span class="bc-label">Solución</span>
                 <p>Plataforma que centraliza clientes, pipeline comercial, agenda e ingresos, con agentes de IA que automatizan tareas repetitivas de seguimiento.</p>
               </div>
+              <div class="bc-field bc-field-wide">
+                <span class="bc-label">Flujo del producto</span>
+                <ol class="bc-flow" aria-label="Flujo comercial de Veltriona">
+                  <li>Prospecto</li>
+                  <li>Pipeline CRM</li>
+                  <li>Agenda</li>
+                  <li>Servicio</li>
+                  <li>Cobro e ingresos</li>
+                  <li>Seguimiento automatizado</li>
+                </ol>
+              </div>
               <div class="bc-field">
                 <span class="bc-label">Tecnología</span>
                 <p>Next.js · Supabase · Stripe</p>
               </div>
               <div class="bc-field">
-                <span class="bc-label">KPIs que se monitorean</span>
-                <p>Pipeline, tasa de conversión de prospectos, ingresos recurrentes y tiempo de respuesta a clientes.</p>
-              </div>
-              <div class="bc-field">
                 <span class="bc-label">Mi participación</span>
                 <p>Definición de la estrategia de producto, priorización de flujos comerciales, diseño del CRM y desarrollo de la plataforma.</p>
+              </div>
+              <div class="bc-field bc-field-wide">
+                <span class="bc-label">KPIs que se pueden monitorear</span>
+                <p>Volumen y velocidad del pipeline, conversión de prospectos, ingresos recurrentes, ocupación de agenda y tiempo de respuesta.</p>
               </div>
             </div>
           </article>
@@ -1047,35 +1063,53 @@ plt.close()</code></pre>
             <div class="bc-grid">
               <div class="bc-field">
                 <span class="bc-label">Contexto</span>
-                <p>Operación educativa con captación, gestión de alumnos y procesos internos manejados en sistemas separados.</p>
+                <p>Ecosistema educativo con captación, pagos, academia digital, gestión de alumnos y procesos internos manejados en sistemas separados.</p>
               </div>
               <div class="bc-field">
                 <span class="bc-label">Problema</span>
                 <p>Desconexión entre marketing de captación, operación interna y experiencia del alumno, dificultando medir el negocio como un todo.</p>
               </div>
               <div class="bc-field">
-                <span class="bc-label">Objetivo de negocio</span>
-                <p>Unificar captación, operación y experiencia del alumno bajo procesos medibles y trazables.</p>
-              </div>
-              <div class="bc-field">
                 <span class="bc-label">Estrategia</span>
-                <p>Conectar el marketing de captación con la operación interna y el seguimiento del alumno, en lugar de tratarlos por separado.</p>
+                <p>Conectar captación, pagos, operación y seguimiento del alumno en un recorrido medible, en lugar de tratarlos como sistemas aislados.</p>
               </div>
               <div class="bc-field">
                 <span class="bc-label">Solución</span>
-                <p>Sistema que combina gestión operativa, captación, comunicación y seguimiento del alumno con reportes de negocio.</p>
+                <p>Sistema que combina producto digital, gestión operativa, comunicación, experiencia del alumno y reportes de negocio.</p>
+              </div>
+              <div class="bc-field bc-field-wide">
+                <span class="bc-label">Flujo del ecosistema</span>
+                <ol class="bc-flow" aria-label="Flujo operativo de SIA'AN KA'AN">
+                  <li>Captación</li>
+                  <li>Registro y pago</li>
+                  <li>Alta de alumno</li>
+                  <li>Academia digital</li>
+                  <li>Seguimiento</li>
+                  <li>Analítica</li>
+                </ol>
+              </div>
+              <div class="bc-field bc-field-wide">
+                <span class="bc-label">Componentes del sistema</span>
+                <ul class="bc-components" aria-label="Componentes de SIA'AN KA'AN">
+                  <li>Marketing y captación</li>
+                  <li>Pagos</li>
+                  <li>Academia digital</li>
+                  <li>Operación interna</li>
+                  <li>Experiencia del alumno</li>
+                  <li>Automatización y analítica</li>
+                </ul>
               </div>
               <div class="bc-field">
                 <span class="bc-label">Tecnología</span>
                 <p>Sistema de gestión y automatización adaptado a la operación, con analítica de negocio integrada.</p>
               </div>
               <div class="bc-field">
-                <span class="bc-label">KPIs que se monitorean</span>
-                <p>Costo de captación, conversión de prospecto a alumno, retención y satisfacción del alumno.</p>
-              </div>
-              <div class="bc-field">
                 <span class="bc-label">Mi participación</span>
                 <p>Definición de la estrategia de captación, diseño de procesos operativos y automatizaciones, y estructuración de la analítica del negocio.</p>
+              </div>
+              <div class="bc-field bc-field-wide">
+                <span class="bc-label">KPIs que se pueden monitorear</span>
+                <p>Costo de captación, conversión de prospecto a alumno, pagos completados, avance académico, retención y satisfacción.</p>
               </div>
             </div>
           </article>
@@ -1105,7 +1139,7 @@ plt.close()</code></pre>
             data-demo="#" data-repo="#">
             <picture>
               <source srcset="assets/images/seo.webp" type="image/webp" />
-              <img src="assets/images/seo.png" alt="Landing SEO de curso online" loading="lazy" width="900" height="506" />
+              <img src="assets/images/seo.png" alt="Landing SEO de curso online" loading="lazy" width="1536" height="1024" />
             </picture>
             <div class="project-content">
               <span class="project-evidence-label">Proyecto real</span>
@@ -1124,7 +1158,7 @@ plt.close()</code></pre>
             data-demo="#" data-repo="#">
             <picture>
               <source srcset="assets/images/landing.webp" type="image/webp" />
-              <img src="assets/images/landing.png" alt="Dashboard de analytics con gráficos de KPIs" loading="lazy" width="900" height="506" />
+              <img src="assets/images/landing.png" alt="Dashboard de analytics con gráficos de KPIs" loading="lazy" width="1024" height="1536" />
             </picture>
             <div class="project-content">
               <h3>Dashboard Analytics</h3>
@@ -1142,7 +1176,7 @@ plt.close()</code></pre>
             data-demo="#" data-repo="#">
             <picture>
               <source srcset="assets/images/sem.webp" type="image/webp" />
-              <img src="assets/images/sem.png" alt="Estructura de campaña SEM en Google Ads" loading="lazy" width="900" height="506" />
+              <img src="assets/images/sem.png" alt="Estructura de campaña SEM en Google Ads" loading="lazy" width="1024" height="1024" />
             </picture>
             <div class="project-content">
               <h3>Campaña SEM · Google Ads</h3>
@@ -1160,7 +1194,7 @@ plt.close()</code></pre>
             data-demo="#" data-repo="#">
             <picture>
               <source srcset="assets/images/brand.webp" type="image/webp" />
-              <img src="assets/images/brand.png" alt="Sistema de identidad visual con paleta y tipografía" loading="lazy" width="900" height="506" />
+              <img src="assets/images/brand.png" alt="Sistema de identidad visual con paleta y tipografía" loading="lazy" width="1024" height="1024" />
             </picture>
             <div class="project-content">
               <h3>Brand System · Wellness</h3>
@@ -1178,7 +1212,7 @@ plt.close()</code></pre>
             data-demo="#" data-repo="#">
             <picture>
               <source srcset="assets/images/ecommerce.webp" type="image/webp" />
-              <img src="assets/images/ecommerce.png" alt="Tienda e-commerce con checkout optimizado" loading="lazy" width="900" height="506" />
+              <img src="assets/images/ecommerce.png" alt="Tienda e-commerce con checkout optimizado" loading="lazy" width="1024" height="1536" />
             </picture>
             <div class="project-content">
               <h3>E-commerce · WooCommerce</h3>
@@ -1196,7 +1230,7 @@ plt.close()</code></pre>
             data-demo="#" data-repo="#">
             <picture>
               <source srcset="assets/images/email.webp" type="image/webp" />
-              <img src="assets/images/email.png" alt="Flujo de email automation" loading="lazy" width="900" height="506" />
+              <img src="assets/images/email.png" alt="Flujo de email automation" loading="lazy" width="1024" height="1024" />
             </picture>
             <div class="project-content">
               <h3>Email Automation · Nurturing</h3>
@@ -1214,7 +1248,7 @@ plt.close()</code></pre>
             data-demo="landing-centergym.html" data-repo="#">
             <picture>
               <source srcset="assets/images/center_gym_fb_luxury_1080x1350.webp" type="image/webp" />
-              <img src="assets/images/center_gym_fb_luxury_1080x1350.webp" alt="Landing page CenterGym, gimnasio premium" loading="lazy" width="900" height="506" />
+              <img src="assets/images/center_gym_fb_luxury_1080x1350.webp" alt="Landing page CenterGym, gimnasio premium" loading="lazy" width="1080" height="1350" />
             </picture>
             <div class="project-content">
               <span class="project-evidence-label">Caso de estudio</span>
@@ -1233,7 +1267,7 @@ plt.close()</code></pre>
             data-demo="landing-noirelux.html" data-repo="#">
             <picture>
               <source srcset="assets/images/g-3.webp" type="image/webp" />
-              <img src="assets/images/g-3.webp" alt="Landing page NOIRÉLUX, activewear de lujo" loading="lazy" width="900" height="506" />
+              <img src="assets/images/g-3.webp" alt="Landing page NOIRÉLUX, activewear de lujo" loading="lazy" width="1200" height="628" />
             </picture>
             <div class="project-content">
               <span class="project-evidence-label">Caso de estudio</span>
@@ -1267,9 +1301,9 @@ plt.close()</code></pre>
 
               <div class="carousel-viewport">
                 <div class="carousel-track">
-                  <img src="assets/images/center_gym_fb_luxury_1080x1350.webp" alt="Variante dorado premium" class="is-active">
-                  <img src="assets/images/online.webp" alt="Variante morado wellness">
-                  <img src="assets/images/a1.webp" alt="Variante rosa/morado, versión ganadora">
+                  <img src="assets/images/center_gym_fb_luxury_1080x1350.webp" alt="Variante dorado premium" class="is-active" loading="lazy" width="1080" height="1350">
+                  <img src="assets/images/online.webp" alt="Variante morado wellness" loading="lazy" width="2481" height="3508">
+                  <img src="assets/images/a1.webp" alt="Variante rosa/morado, versión ganadora" loading="lazy" width="2481" height="3508">
                 </div>
               </div>
 
@@ -1294,8 +1328,8 @@ plt.close()</code></pre>
 
               <div class="carousel-viewport">
                 <div class="carousel-track">
-                  <img src="assets/images/g-2.webp" alt="Fotografia original de producto" class="is-active">
-                  <img src="assets/images/g-3.webp" alt="Banner final de campana NOIRELUX">
+                  <img src="assets/images/g-2.webp" alt="Fotografía original de producto" class="is-active" loading="lazy" width="1080" height="1920">
+                  <img src="assets/images/g-3.webp" alt="Banner final de campaña NOIRÉLUX" loading="lazy" width="1200" height="628">
                 </div>
               </div>
 
@@ -1446,7 +1480,7 @@ plt.close()</code></pre>
             <small class="error" aria-live="polite"></small>
           </label>
 
-          <button class="btn full" type="submit"><i class="fa-solid fa-paper-plane"></i> Enviar</button>
+          <button class="btn full" type="submit"><i class="fa-solid fa-paper-plane"></i> Iniciar conversación</button>
         </form>
       </div>
     </section>
@@ -1456,14 +1490,14 @@ plt.close()</code></pre>
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <dialog class="modal" id="projectModal" aria-label="Vista de proyecto">
+  <dialog class="modal" id="projectModal" aria-labelledby="projectModalTitle">
     <div class="modal-card" role="document">
       <div class="modal-head">
-        <h4 class="modal-title">Proyecto</h4>
-        <button class="modal-close" aria-label="Cerrar">×</button>
+        <h4 class="modal-title" id="projectModalTitle">Proyecto</h4>
+        <button class="modal-close" type="button" aria-label="Cerrar">×</button>
       </div>
       <div class="modal-body">
-        <img class="modal-img" src="assets/images/og_preview.png" alt="Vista previa" />
+        <img class="modal-img" alt="" />
         <p class="modal-desc">Descripción del proyecto…</p>
         <div class="modal-actions">
           <a id="modalDemo" href="#" target="_blank" rel="noopener" class="btn sm">
