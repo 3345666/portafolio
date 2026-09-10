@@ -181,8 +181,16 @@ document.addEventListener("DOMContentLoaded", () => {
           img.alt = card.dataset.title || "";
         }
 
-        if (demo) demo.href = card.dataset.demo || "#";
-        if (repo) repo.href = card.dataset.repo || "#";
+        const demoHref = card.dataset.demo || "#";
+        const repoHref = card.dataset.repo || "#";
+        if (demo) {
+          demo.href = demoHref;
+          demo.hidden = demoHref === "#";
+        }
+        if (repo) {
+          repo.href = repoHref;
+          repo.hidden = repoHref === "#";
+        }
 
         if (typeof modal.showModal === "function") modal.showModal();
       });
@@ -333,7 +341,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       try {
         const data = new FormData(form);
-        const res = await fetch("https://formspree.io/f/YOUR_FORMSPREE_ID", {
+        const res = await fetch(form.action, {
           method: "POST",
           body: data,
           headers: { Accept: "application/json" },
@@ -593,16 +601,16 @@ document.addEventListener("DOMContentLoaded", () => {
         "From noise to clarity.",
       ]
     : [
-        "Conectamos ideas con datos.",
-        "Señales → insight → acción.",
-        "Analítica que impulsa estrategia.",
-        "IA que habla marketing.",
+        "Conectamos negocio con datos.",
+        "Señales → insight → estrategia.",
+        "Analítica que impulsa decisiones.",
+        "IA aplicada a crecimiento.",
         "Del ruido a la claridad.",
       ];
 
   const shapeWords = isEn
-    ? ["AI", "DATA", "ROAS", "CTR", "CPA", "LTV", "SEO", "CRM", "KPI", "GROWTH"]
-    : ["IA", "DATOS", "ROAS", "CTR", "CPA", "LTV", "SEO", "CRM", "KPI", "CRECER"];
+    ? ["AI", "DATA", "ROAS", "CAC", "LTV", "CRM", "KPI", "GROWTH", "OPS", "STRATEGY"]
+    : ["IA", "DATOS", "ROAS", "CAC", "LTV", "CRM", "KPI", "CRECER", "ROI", "NEGOCIO"];
 
   let currentPhrase = 0;
   let currentShapeIndex = 0;

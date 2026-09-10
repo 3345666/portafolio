@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CV · Tonathiu Palma · Desarrollador Web & Marketing Digital</title>
-  <meta name="description" content="Currículum de Tonathiu Palma: Desarrollador Web y Especialista en Marketing Digital. 10+ años de experiencia." />
+  <title>CV · Tonathiu Palma · Estrategia de Negocio, Growth & Automatización</title>
+  <meta name="description" content="Currículum de Tonathiu Palma: Licenciado en Negocios Internacionales con experiencia en estrategia comercial, growth marketing, automatización de CRM y analítica de datos." />
   <meta name="robots" content="noindex">
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -94,8 +94,14 @@
       margin-bottom: 4px;
     }
     .cv-head-info .cv-role {
-      font-size: 1em;
-      opacity: .88;
+      font-size: 1.05em;
+      font-weight: 700;
+      opacity: .95;
+      margin-bottom: 2px;
+    }
+    .cv-head-info .cv-subrole {
+      font-size: .82em;
+      opacity: .82;
       margin-bottom: 14px;
     }
     .cv-head-meta {
@@ -291,7 +297,7 @@
     @media print {
       * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
-      body { background: #fff; font-size: 12px; }
+      body { background: #fff; font-size: 9px; }
       .cv-toolbar { display: none; }
       .cv-sheet {
         max-width: 100%;
@@ -299,11 +305,20 @@
         border-radius: 0;
         box-shadow: none;
       }
-      .cv-head { padding: 24px 30px 20px; }
-      .cv-main { padding: 20px 26px; }
-      .cv-aside { padding: 20px 20px; }
-      .cv-section { margin-bottom: 18px; }
-      .cv-job { margin-bottom: 14px; }
+      .cv-head { padding: 12px 24px 10px; }
+      .cv-avatar { width: 52px; height: 52px; }
+      .cv-main { padding: 11px 20px; }
+      .cv-aside { padding: 11px 15px; }
+      .cv-section { margin-bottom: 7px; }
+      .cv-section-title { margin-bottom: 8px; padding-bottom: 3px; }
+      .cv-job { margin-bottom: 5px; }
+      .cv-job li { margin-bottom: 1px; line-height: 1.3; }
+      .cv-project { margin-bottom: 4px; padding: 4px 7px; }
+      .skill-group { margin-bottom: 5px; }
+      .cv-kpi-grid { gap: 4px; }
+      .cv-kpi { padding: 4px 6px; }
+      .cv-available { margin-top: 3px; }
+      .lang-item { margin-bottom: 4px; }
       a { color: inherit; text-decoration: none; }
       .cv-body { grid-template-columns: 1fr 240px; }
 
@@ -317,7 +332,7 @@
 
   <!-- Toolbar — solo visible en pantalla, oculta al imprimir -->
   <div class="cv-toolbar">
-    <span>📄 CV · Tonathiu Palma · Web & Marketing Digital</span>
+    <span>📄 CV · Tonathiu Palma · Estrategia de Negocio, Growth & Automatización</span>
     <div class="toolbar-actions">
       <a href="index.html" class="btn-back">← Volver al portafolio</a>
       <button class="btn-print" onclick="window.print()">⬇ Descargar / Imprimir PDF</button>
@@ -334,12 +349,13 @@
       </picture>
       <div class="cv-head-info">
         <h1>Tonathiu Palma</h1>
-        <p class="cv-role">Desarrollador Web · Especialista en Marketing Digital · Analítica de datos</p>
+        <p class="cv-role">Business Strategy · Growth · Marketing Automation</p>
+        <p class="cv-subrole">Negocios Internacionales | Data-driven Marketing & Digital Transformation</p>
         <div class="cv-head-meta">
           <a href="mailto:tonathiupalma@gmail.com">✉ tonathiupalma@gmail.com</a>
-          <a href="https://wa.me/52XXXXXXXXXX" target="_blank" rel="noopener">📱 WhatsApp</a>
+          <!-- WhatsApp oculto: falta número real. -->
           <a href="https://github.com/palmazpeitia-png" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://www.linkedin.com/in/TU_LINKEDIN_AQUI/" target="_blank" rel="noopener">LinkedIn</a>
+          <!-- LinkedIn oculto: falta URL real de perfil. -->
           <span>📍 Cancún, México · Disponible remoto</span>
         </div>
         <div class="cv-available">
@@ -359,10 +375,11 @@
         <section class="cv-section">
           <h2 class="cv-section-title">Perfil profesional</h2>
           <p style="font-size:.9em;color:var(--muted);line-height:1.65">
-            Freelance multidisciplinario con 10+ años de experiencia en <strong style="color:var(--ink)">desarrollo web</strong>,
-            <strong style="color:var(--ink)">marketing de rendimiento</strong> y <strong style="color:var(--ink)">analítica de datos</strong>.
-            Especializado en crear y optimizar sistemas digitales que generan resultados medibles:
-            más leads, menor CPL, mayor ROAS. Trabajo con clientes en México, LATAM y España de forma remota.
+            Licenciado en <strong style="color:var(--ink)">Negocios Internacionales</strong> con experiencia en
+            <strong style="color:var(--ink)">estrategia comercial</strong>, análisis de negocio,
+            <strong style="color:var(--ink)">marketing de performance</strong> y <strong style="color:var(--ink)">automatización</strong>.
+            Conecto objetivos de negocio con datos, campañas, procesos de CRM y tecnología para convertir
+            estrategia en resultados medibles. Trabajo con clientes en México, LATAM y España de forma remota.
           </p>
         </section>
 
@@ -372,16 +389,16 @@
 
           <div class="cv-job">
             <div class="cv-job-header">
-              <h3>Marketing Digital & Desarrollo Web</h3>
+              <h3>Estrategia Comercial, Growth & Automatización</h3>
               <span class="cv-job-date">2015 – Actualidad</span>
             </div>
-            <p class="cv-job-company">Freelance independiente · Cancún / Remoto</p>
+            <p class="cv-job-company">Freelance / Consultoría independiente · Cancún / Remoto</p>
             <ul>
-              <li>Diseño y desarrollo de <strong>landing pages</strong> optimizadas para conversión (LCP &lt;2s, Core Web Vitals).</li>
-              <li>Gestión de <strong>campañas Meta Ads, Google Ads y TikTok Ads</strong> con enfoque en CPL y ROAS.</li>
-              <li>Implementación de <strong>GA4 + GTM</strong> y dashboards en Power BI para seguimiento de KPIs.</li>
-              <li>Producción de <strong>contenido visual</strong> (banners, reels, videos) alineado a objetivos de performance.</li>
-              <li>Automatizaciones de <strong>email marketing</strong> con flujos de nurturing y segmentación.</li>
+              <li>Diseño de <strong>estrategias de adquisición, posicionamiento y conversión</strong>, administrando campañas multicanal y utilizando CTR, CPC, CPL, CPA, ROAS y ROI para optimizar inversión y rentabilidad.</li>
+              <li>Diseño de <strong>procesos comerciales y automatizaciones</strong> mediante CRM, pipelines y herramientas como HubSpot, Zoho y Make para mejorar seguimiento, trazabilidad y conversión de prospectos.</li>
+              <li>Implementación de <strong>GA4 + GTM</strong> y dashboards en Power BI / Looker Studio para seguimiento de KPIs de negocio.</li>
+              <li>Desarrollo y estrategia de <strong>producto digital</strong> (Next.js, Supabase) para negocios de servicios.</li>
+              <li>Producción de contenido visual alineado a objetivos comerciales de performance.</li>
             </ul>
           </div>
 
@@ -402,6 +419,24 @@
         <!-- Proyectos destacados -->
         <section class="cv-section">
           <h2 class="cv-section-title">Proyectos y resultados destacados</h2>
+
+          <div class="cv-project">
+            <div class="cv-project-icon" aria-hidden="true">🧩</div>
+            <div>
+              <h4>Veltriona — Producto SaaS para negocios de servicios</h4>
+              <p>Plataforma que integra clientes, pipeline, agenda, ingresos, automatización y agentes de IA. Estrategia de producto, CRM y desarrollo.</p>
+              <span class="cv-result">Next.js · Supabase · Stripe</span>
+            </div>
+          </div>
+
+          <div class="cv-project">
+            <div class="cv-project-icon" aria-hidden="true">🎓</div>
+            <div>
+              <h4>SIA'AN KA'AN — Operación, captación y experiencia educativa</h4>
+              <p>Sistema que combina captación, operación, marketing, automatización y analítica bajo un mismo proceso.</p>
+              <span class="cv-result">Estrategia · Operación · Analítica</span>
+            </div>
+          </div>
 
           <div class="cv-project">
             <div class="cv-project-icon" aria-hidden="true">🎯</div>
@@ -476,26 +511,33 @@
           <h2 class="cv-section-title">Habilidades técnicas</h2>
 
           <div class="skill-group">
-            <p class="skill-group-title">Desarrollo Web</p>
+            <p class="skill-group-title">Negocio & Estrategia</p>
             <div class="skill-tags">
-              <span class="skill-tag highlight">HTML5</span>
-              <span class="skill-tag highlight">CSS3</span>
-              <span class="skill-tag highlight">JavaScript</span>
-              <span class="skill-tag">PHP</span>
-              <span class="skill-tag">WordPress</span>
-              <span class="skill-tag">WooCommerce</span>
-              <span class="skill-tag">Git / GitHub</span>
+              <span class="skill-tag highlight">Estrategia comercial</span>
+              <span class="skill-tag highlight">Pricing</span>
+              <span class="skill-tag">Análisis de mercado</span>
+              <span class="skill-tag">Rentabilidad</span>
+              <span class="skill-tag">Forecast</span>
             </div>
           </div>
 
           <div class="skill-group">
-            <p class="skill-group-title">Marketing & Ads</p>
+            <p class="skill-group-title">Growth & Performance</p>
             <div class="skill-tags">
               <span class="skill-tag highlight">Meta Ads</span>
               <span class="skill-tag highlight">Google Ads</span>
               <span class="skill-tag">TikTok Ads</span>
               <span class="skill-tag">SEO on-page</span>
               <span class="skill-tag">CRO</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <p class="skill-group-title">CRM & Automatización</p>
+            <div class="skill-tags">
+              <span class="skill-tag highlight">HubSpot</span>
+              <span class="skill-tag highlight">Zoho CRM</span>
+              <span class="skill-tag">Make</span>
               <span class="skill-tag">Email marketing</span>
             </div>
           </div>
@@ -509,6 +551,17 @@
               <span class="skill-tag">Excel / Sheets</span>
               <span class="skill-tag">Python</span>
               <span class="skill-tag">Looker Studio</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <p class="skill-group-title">Producto & Tecnología</p>
+            <div class="skill-tags">
+              <span class="skill-tag highlight">Next.js</span>
+              <span class="skill-tag highlight">Supabase</span>
+              <span class="skill-tag">Vercel</span>
+              <span class="skill-tag">WordPress</span>
+              <span class="skill-tag">Git / GitHub</span>
             </div>
           </div>
 
@@ -551,7 +604,7 @@
           <ul class="tools-list">
             <li><a href="https://palmazpeitia-png.github.io/portafolio/" target="_blank" rel="noopener">Portafolio web</a></li>
             <li><a href="https://github.com/palmazpeitia-png" target="_blank" rel="noopener">GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/TU_LINKEDIN_AQUI/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <!-- LinkedIn oculto: falta URL real de perfil. -->
           </ul>
         </section>
 
