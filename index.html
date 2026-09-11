@@ -895,19 +895,19 @@
 
           <div class="charts-grid">
             <figure class="chart-card">
-              <img src="assets/images/charts/cpl_evolucion.png" alt="Evolución del CPL por mes" loading="lazy" width="720" height="480" />
+              <img src="assets/images/charts/cpl_evolucion.png" alt="Evolución del CPL por mes" loading="lazy" width="720" height="482" />
               <figcaption>Evolución del <strong>CPL</strong> por mes.</figcaption>
               <p class="chart-decision"><strong>Decisión:</strong> si sube de forma sostenida, reviso primero segmentación, creativo y conversión de landing.</p>
             </figure>
 
             <figure class="chart-card">
-              <img src="assets/images/charts/roas_campanas.png" alt="ROAS por campañas" loading="lazy" width="720" height="480" />
+              <img src="assets/images/charts/roas_campanas.png" alt="ROAS por campañas" loading="lazy" width="720" height="482" />
               <figcaption>Comparativa de <strong>ROAS</strong> por campaña.</figcaption>
               <p class="chart-decision"><strong>Decisión:</strong> comparo rentabilidad antes de escalar presupuesto o pausar una campaña.</p>
             </figure>
 
             <figure class="chart-card">
-              <img src="assets/images/charts/ctr_dispositivos.png" alt="CTR por dispositivo" loading="lazy" width="600" height="480" />
+              <img src="assets/images/charts/ctr_dispositivos.png" alt="CTR por dispositivo" loading="lazy" width="720" height="482" />
               <figcaption><strong>CTR</strong> por dispositivo.</figcaption>
               <p class="chart-decision"><strong>Decisión:</strong> uso la diferencia por dispositivo para detectar relevancia, fatiga o fricción en la experiencia.</p>
             </figure>
@@ -921,16 +921,19 @@ import matplotlib.pyplot as plt
 data = {"mes":["Ene","Feb","Mar","Abr","May","Jun"],"cpl_antes":[75,72,68,62,58,55],"cpl_despues":[55,52,50,48,46,45]}
 df = pd.DataFrame(data)
 
-plt.figure(figsize=(6,4))
-plt.plot(df["mes"], df["cpl_antes"], marker="o", label="Antes")
-plt.plot(df["mes"], df["cpl_despues"], marker="o", label="Después")
-plt.title("Evolución del CPL por mes")
-plt.xlabel("Mes")
-plt.ylabel("CPL ($)")
-plt.legend()
-plt.tight_layout()
-plt.savefig("assets/images/charts/cpl_evolucion.png", dpi=120)
-plt.close()</code></pre>
+# Fondo transparente y acento dorado solo en el dato relevante: se integra
+# con la identidad del sitio en modo claro y oscuro.
+fig, ax = plt.subplots(figsize=(6, 4), dpi=200)
+ax.plot(df["mes"], df["cpl_antes"], marker="o", linestyle="--", color="#a99a78", label="Antes")
+ax.plot(df["mes"], df["cpl_despues"], marker="o", linewidth=2.4, color="#b8922a", label="Después")
+ax.spines[["top", "right"]].set_visible(False)
+ax.set_title("Evolución del CPL por mes")
+ax.set_xlabel("Mes")
+ax.set_ylabel("CPL ($)")
+ax.legend(frameon=False)
+fig.tight_layout()
+fig.savefig("assets/images/charts/cpl_evolucion.png", transparent=True, bbox_inches="tight")
+plt.close(fig)</code></pre>
           </details>
         </section>
       </div>

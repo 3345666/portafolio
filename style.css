@@ -528,10 +528,12 @@ a{color:inherit}
   align-items:center;
   gap:7px;
   color:var(--muted);
-  text-decoration:none;
+  text-decoration:underline;
+  text-decoration-color:var(--line-strong);
+  text-underline-offset:3px;
   padding:6px 2px;
 }
-.hero-links a:hover{color:var(--brand)}
+.hero-links a:hover{color:var(--brand);text-decoration-color:var(--brand)}
 .hero-links span{opacity:.5}
 
 .hero-badges{
@@ -562,23 +564,11 @@ a{color:inherit}
   width:min(100%, 430px);
   justify-self:end;
   align-self:center;
-  min-height:470px;
   border-radius:30px;
-  padding:34px 0 0 44px;
+  padding:0;
   margin:0;
 }
 
-.hero-media::before{
-  content:'';
-  position:absolute;
-  inset:0 28px 28px 0;
-  border-radius:30px;
-  border:1px solid var(--line-strong);
-  background:
-    linear-gradient(145deg, color-mix(in srgb, var(--paper) 14%, transparent), transparent 56%),
-    radial-gradient(circle at 74% 20%, color-mix(in srgb, var(--ink) 5%, transparent), transparent 38%);
-  box-shadow:0 26px 62px rgba(10,8,5,.14);
-}
 .hero-media picture{
   position:relative;
   display:block;
@@ -1149,7 +1139,7 @@ a{color:inherit}
     radial-gradient(ellipse 60% 40% at 90% 80%, color-mix(in srgb, var(--brand) 4%, transparent), transparent 60%),
     var(--paper);
   overflow:hidden;
-  border:1px solid color-mix(in srgb, var(--brand) 18%, transparent);
+  border:1px solid var(--line-strong);
   box-shadow:var(--shadow-sm);
 }
 .ai-header{
@@ -1165,9 +1155,9 @@ a{color:inherit}
   gap:8px;
   padding:6px 12px;
   border-radius:999px;
-  border:1px solid color-mix(in srgb, var(--brand) 30%, transparent);
-  background:var(--ink);
-  color:var(--bg);
+  border:1px solid var(--line-strong);
+  background:var(--surface-tint);
+  color:var(--muted);
   font-size:.8rem;
   font-weight:800;
   letter-spacing:.08em;
@@ -1196,7 +1186,7 @@ a{color:inherit}
   background:var(--bg);
   border-radius:14px;
   padding:12px 12px 14px;
-  border:1px solid color-mix(in srgb, var(--brand) 16%, transparent);
+  border:1px solid var(--line);
   box-shadow:var(--shadow-sm);
   display:flex;
   flex-direction:column;
@@ -1206,6 +1196,7 @@ a{color:inherit}
 .chart-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
 .chart-card img{
   width:100%;
+  height:auto;
   border-radius:10px;
 }
 .chart-card figcaption{
@@ -2228,7 +2219,7 @@ a:focus-visible{
       "proof";
     row-gap:28px;
   }
-  .about-cards{grid-template-columns:1fr 1fr}
+  .about-cards{grid-template-columns:repeat(3,1fr)}
   .skills{grid-template-columns:repeat(4,1fr)}
   .projects-grid{grid-template-columns:1fr 1fr}
   .designs-grid{grid-template-columns:1fr}
@@ -2249,9 +2240,8 @@ a:focus-visible{
     width:min(100%, 440px);
     justify-self:center;
     align-self:start;
-    min-height:auto;
     margin-top:8px;
-    padding:40px 0 0 42px;
+    padding:0;
   }
   .quick-nav .container{
     align-items:flex-start;
@@ -2400,10 +2390,8 @@ a:focus-visible{
   .hero-media{
     width:min(100%, calc(100vw - 40px));
     max-width:100%;
-    min-height:0;
-    padding:48px 0 0;
+    padding:0;
   }
-  .hero-media::before{display:none}
   .hero-media picture{
     aspect-ratio:1/1;
     border-radius:22px;
