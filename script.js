@@ -52,18 +52,26 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Reveal on scroll
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.classList.add("visible");
-          io.unobserve(e.target);
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
-  $$(".reveal").forEach((el) => io.observe(el));
+  // threshold bajo (no 0.2): secciones más altas que el viewport (frecuente en
+  // móvil) nunca alcanzaban un 20% de área visible, así que la clase "visible"
+  // jamás se añadía y el contenido quedaba en opacity:0 permanentemente.
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("visible");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0, rootMargin: "0px 0px -5% 0px" }
+    );
+    $$(".reveal").forEach((el) => io.observe(el));
+  } else {
+    // Sin soporte de IntersectionObserver: mostrar contenido directamente
+    $$(".reveal").forEach((el) => el.classList.add("visible"));
+  }
 
   // Dark / Light theme toggle with localStorage
   const themeBtn = $("#themeBtn");

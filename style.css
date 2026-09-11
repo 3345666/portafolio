@@ -2066,6 +2066,11 @@ lite-youtube{
   opacity:1;
   transform:translateY(0);
 }
+/* Sin JS (o si IntersectionObserver no corre) el contenido debe verse igual */
+.no-js .reveal{
+  opacity:1;
+  transform:none;
+}
 
 /* Scroll progress */
 #scrollProgress{
